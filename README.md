@@ -48,12 +48,12 @@ Add the FlexPrice MCP server in your editor using one of the configs below. Repl
 
 ### Config file locations
 
-| Host                         | Config location                                                                                                                                           |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Cursor**                   | **Cursor → Settings → MCP** (or **Cmd + Shift + P** → "Cursor Settings" → MCP). Edit the MCP servers list or the JSON file it uses.                        |
-| **VS Code**                  | Command Palette → **MCP: Open User Configuration** (opens `mcp.json`).                                                                                    |
-| **Claude Desktop (macOS)**   | `~/Library/Application Support/Claude/claude_desktop_config.json`                                                                                         |
-| **Claude Desktop (Windows)** | `%APPDATA%\Claude\claude_desktop_config.json`                                                                                                             |
+| Host                         | Config location                                                                                                                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Cursor**                   | **Cursor → Settings → MCP** (or **Cmd + Shift + P** → "Cursor Settings" → MCP). Edit the MCP servers list or the JSON file it uses. |
+| **VS Code**                  | Command Palette → **MCP: Open User Configuration** (opens `mcp.json`).                                                              |
+| **Claude Desktop (macOS)**   | `~/Library/Application Support/Claude/claude_desktop_config.json`                                                                   |
+| **Claude Desktop (Windows)** | `%APPDATA%\Claude\claude_desktop_config.json`                                                                                       |
 
 ---
 
@@ -305,29 +305,36 @@ To change the API surface: edit `swagger/swagger-3-0.json` (or `.speakeasy/overl
 This project is licensed under the [Apache License 2.0](LICENSE).
 
 <!-- Start Summary [summary] -->
+
 ## Summary
 
 FlexPrice API: FlexPrice API Service
+
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
+
 ## Table of Contents
+
 <!-- $toc-max-depth=2 -->
-* [FlexPrice MCP Server](#flexprice-mcp-server)
-  * [Prerequisites](#prerequisites)
-  * [How you can use the FlexPrice MCP server](#how-you-can-use-the-flexprice-mcp-server)
-* [Generate only (output at repo root; may overwrite package.json)](#generate-only-output-at-repo-root-may-overwrite-packagejson)
-* [Generate, restore repo scripts in package.json, and install dependencies (recommended)](#generate-restore-repo-scripts-in-packagejson-and-install-dependencies-recommended)
+
+- [FlexPrice MCP Server](#flexprice-mcp-server)
+  - [Prerequisites](#prerequisites)
+  - [How you can use the FlexPrice MCP server](#how-you-can-use-the-flexprice-mcp-server)
+- [Generate only (output at repo root; may overwrite package.json)](#generate-only-output-at-repo-root-may-overwrite-packagejson)
+- [Generate, restore repo scripts in package.json, and install dependencies (recommended)](#generate-restore-repo-scripts-in-packagejson-and-install-dependencies-recommended)
 
 <!-- End Table of Contents [toc] -->
 
 <!-- Start Installation [installation] -->
+
 ## Installation
 
 Same configs as above, in collapsible form for Cursor, VS Code, Claude Code, etc.
 
 > [!TIP]
 > To finish publishing your MCP Server to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
+
 <details>
 <summary>Claude Desktop</summary>
 
@@ -421,6 +428,7 @@ Refer to [Official Windsurf documentation](https://docs.windsurf.com/windsurf/ca
   }
 }
 ```
+
 </details>
 <details>
 <summary>VS Code</summary>
@@ -468,6 +476,7 @@ npx @flexprice/mcp-server --help
 <!-- End Installation [installation] -->
 
 <!-- Start Progressive Discovery [dynamic-mode] -->
+
 ## Progressive Discovery
 
 MCP servers with many tools can bloat LLM context windows, leading to increased token usage and tool confusion. Dynamic mode solves this by exposing only a small set of meta-tools that let agents progressively discover and invoke tools on demand.
@@ -479,9 +488,19 @@ To enable dynamic mode, pass the `--mode dynamic` flag when starting your server
   "mcpServers": {
     "flexprice": {
       "command": "npx",
-      "args": ["-y", "@flexprice/mcp-server", "start", "--server-url", "https://api.cloud.flexprice.io/v1", "--api-key-auth", "YOUR_API_KEY", "--mode", "dynamic"]
-    }
-  }
+      "args": [
+        "-y",
+        "@flexprice/mcp-server",
+        "start",
+        "--server-url",
+        "https://api.cloud.flexprice.io/v1",
+        "--api-key-auth",
+        "YOUR_API_KEY",
+        "--mode",
+        "dynamic",
+      ],
+    },
+  },
 }
 ```
 
@@ -492,6 +511,7 @@ In dynamic mode, the server registers only the following meta-tools instead of e
 - **`execute_tool`**: Executes a tool by name with the provided input parameters.
 
 This approach significantly reduces the number of tokens sent to the LLM on each request, which is especially useful for servers with a large number of tools.
+
 <!-- End Progressive Discovery [dynamic-mode] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
