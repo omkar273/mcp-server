@@ -19,6 +19,7 @@
                 ],
                 "summary": "List addons",
                 "description": "Get addons with optional filtering",
+                "operationId": "listAddons",
                 "parameters": [
                     {
                         "name": "addon_ids",
@@ -38,14 +39,17 @@
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "onetime"
+                                "onetime",
+                                "multiple_instance"
                             ],
                             "x-enum-varnames": [
-                                "AddonTypeOnetime"
+                                "AddonTypeOnetime",
+                                "AddonTypeMultipleInstance"
                             ]
                         },
                         "x-enum-varnames": [
-                            "AddonTypeOnetime"
+                            "AddonTypeOnetime",
+                            "AddonTypeMultipleInstance"
                         ]
                     },
                     {
@@ -176,6 +180,7 @@
                 ],
                 "summary": "Create addon",
                 "description": "Create a new addon",
+                "operationId": "createAddon",
                 "requestBody": {
                     "description": "Addon Request",
                     "content": {
@@ -234,6 +239,7 @@
                 ],
                 "summary": "Get addon by lookup key",
                 "description": "Get an addon by lookup key",
+                "operationId": "getAddonByLookupKey",
                 "parameters": [
                     {
                         "name": "lookup_key",
@@ -291,6 +297,7 @@
                 ],
                 "summary": "List addons by filter",
                 "description": "List addons by filter",
+                "operationId": "listAddonsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -349,6 +356,7 @@
                 ],
                 "summary": "Get addon",
                 "description": "Get an addon by ID",
+                "operationId": "getAddon",
                 "parameters": [
                     {
                         "name": "id",
@@ -404,6 +412,7 @@
                 ],
                 "summary": "Update addon",
                 "description": "Update an existing addon",
+                "operationId": "updateAddon",
                 "parameters": [
                     {
                         "name": "id",
@@ -471,6 +480,7 @@
                 ],
                 "summary": "Delete addon",
                 "description": "Delete an addon",
+                "operationId": "deleteAddon",
                 "parameters": [
                     {
                         "name": "id",
@@ -528,6 +538,7 @@
                 ],
                 "summary": "Get addon entitlements",
                 "description": "Get all entitlements for an addon",
+                "operationId": "getAddonEntitlements",
                 "parameters": [
                     {
                         "name": "id",
@@ -595,6 +606,7 @@
                 ],
                 "summary": "List alert logs by filter",
                 "description": "List alert logs by filter with optional expand for customer, wallet, and feature",
+                "operationId": "listAlertLogsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -653,6 +665,7 @@
                 ],
                 "summary": "Login",
                 "description": "Login a user",
+                "operationId": "login",
                 "requestBody": {
                     "description": "Login request",
                     "content": {
@@ -696,6 +709,7 @@
                 ],
                 "summary": "Sign up",
                 "description": "Sign up a new user",
+                "operationId": "signUp",
                 "requestBody": {
                     "description": "Sign up request",
                     "content": {
@@ -739,6 +753,7 @@
                 ],
                 "summary": "Get connections",
                 "description": "Get a list of connections",
+                "operationId": "listConnections",
                 "parameters": [
                     {
                         "name": "connection_ids",
@@ -807,7 +822,8 @@
                                 "razorpay",
                                 "chargebee",
                                 "quickbooks",
-                                "nomod"
+                                "nomod",
+                                "moyasar"
                             ],
                             "x-enum-varnames": [
                                 "SecretProviderFlexPrice",
@@ -817,7 +833,8 @@
                                 "SecretProviderRazorpay",
                                 "SecretProviderChargebee",
                                 "SecretProviderQuickBooks",
-                                "SecretProviderNomod"
+                                "SecretProviderNomod",
+                                "SecretProviderMoyasar"
                             ]
                         },
                         "x-enum-varnames": [
@@ -828,7 +845,8 @@
                             "SecretProviderRazorpay",
                             "SecretProviderChargebee",
                             "SecretProviderQuickBooks",
-                            "SecretProviderNomod"
+                            "SecretProviderNomod",
+                            "SecretProviderMoyasar"
                         ]
                     },
                     {
@@ -907,6 +925,7 @@
                 ],
                 "summary": "List connections by filter",
                 "description": "List connections by filter",
+                "operationId": "listConnectionsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -965,6 +984,7 @@
                 ],
                 "summary": "Get a connection",
                 "description": "Get a connection by ID",
+                "operationId": "getConnection",
                 "parameters": [
                     {
                         "name": "id",
@@ -1030,6 +1050,7 @@
                 ],
                 "summary": "Update a connection",
                 "description": "Update a connection by ID",
+                "operationId": "updateConnection",
                 "parameters": [
                     {
                         "name": "id",
@@ -1107,6 +1128,7 @@
                 ],
                 "summary": "Delete a connection",
                 "description": "Delete a connection by ID",
+                "operationId": "deleteConnection",
                 "parameters": [
                     {
                         "name": "id",
@@ -1168,6 +1190,7 @@
                 ],
                 "summary": "Create a new costsheet",
                 "description": "Create a new costsheet with the specified name",
+                "operationId": "createCostsheet",
                 "requestBody": {
                     "description": "Costsheet configuration",
                     "content": {
@@ -1236,6 +1259,7 @@
                 ],
                 "summary": "Get active costsheet for tenant",
                 "description": "Get the active costsheet for the current tenant",
+                "operationId": "getActiveCostsheet",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1282,6 +1306,7 @@
                 ],
                 "summary": "Get combined revenue and cost analytics",
                 "description": "Retrieve combined analytics with ROI, margin, and detailed breakdowns. If start_time and end_time are not provided, defaults to last 7 days.",
+                "operationId": "getDetailedCostAnalytics",
                 "requestBody": {
                     "description": "Combined analytics request (start_time/end_time optional - defaults to last 7 days)",
                     "content": {
@@ -1340,6 +1365,7 @@
                 ],
                 "summary": "Get combined revenue and cost analytics",
                 "description": "Retrieve combined analytics with ROI, margin, and detailed breakdowns. If start_time and end_time are not provided, defaults to last 7 days.",
+                "operationId": "getDetailedCostAnalyticsV2",
                 "requestBody": {
                     "description": "Combined analytics request (start_time/end_time optional - defaults to last 7 days)",
                     "content": {
@@ -1398,6 +1424,7 @@
                 ],
                 "summary": "List costsheets by filter",
                 "description": "List costsheet records by filter with POST body",
+                "operationId": "listCostsheetsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -1456,6 +1483,7 @@
                 ],
                 "summary": "Get a costsheet by ID",
                 "description": "Get a costsheet by ID with optional price expansion",
+                "operationId": "getCostsheetById",
                 "parameters": [
                     {
                         "name": "id",
@@ -1529,6 +1557,7 @@
                 ],
                 "summary": "Update a costsheet",
                 "description": "Update a costsheet with the specified configuration",
+                "operationId": "updateCostsheet",
                 "parameters": [
                     {
                         "name": "id",
@@ -1616,6 +1645,7 @@
                 ],
                 "summary": "Delete a costsheet",
                 "description": "Soft delete a costsheet by setting its status to deleted",
+                "operationId": "deleteCostsheet",
                 "parameters": [
                     {
                         "name": "id",
@@ -1683,6 +1713,7 @@
                 ],
                 "summary": "List coupons with filtering",
                 "description": "Lists coupons with filtering",
+                "operationId": "listCoupons",
                 "parameters": [
                     {
                         "name": "coupon_ids",
@@ -1831,6 +1862,7 @@
                 ],
                 "summary": "Create a new coupon",
                 "description": "Creates a new coupon",
+                "operationId": "createCoupon",
                 "requestBody": {
                     "description": "Coupon request",
                     "content": {
@@ -1922,6 +1954,7 @@
                 ],
                 "summary": "Get a coupon by ID",
                 "description": "Retrieves a coupon by ID",
+                "operationId": "getCouponById",
                 "parameters": [
                     {
                         "name": "id",
@@ -2010,6 +2043,7 @@
                 ],
                 "summary": "Update a coupon",
                 "description": "Updates an existing coupon",
+                "operationId": "updateCoupon",
                 "parameters": [
                     {
                         "name": "id",
@@ -2110,6 +2144,7 @@
                 ],
                 "summary": "Delete a coupon",
                 "description": "Deletes a coupon",
+                "operationId": "deleteCoupon",
                 "parameters": [
                     {
                         "name": "id",
@@ -2203,7 +2238,20 @@
                 ],
                 "summary": "Get credit grants",
                 "description": "Get credit grants with the specified filter",
+                "operationId": "getCreditGrants",
                 "parameters": [
+                    {
+                        "name": "credit_grant_ids",
+                        "in": "query",
+                        "style": "form",
+                        "explode": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     {
                         "name": "end_time",
                         "in": "query",
@@ -2371,6 +2419,7 @@
                 ],
                 "summary": "Create a new credit grant",
                 "description": "Create a new credit grant with the specified configuration",
+                "operationId": "createCreditGrant",
                 "requestBody": {
                     "description": "Credit Grant configuration",
                     "content": {
@@ -2429,6 +2478,7 @@
                 ],
                 "summary": "Get a credit grant by ID",
                 "description": "Get a credit grant by ID",
+                "operationId": "getCreditGrantById",
                 "parameters": [
                     {
                         "name": "id",
@@ -2484,6 +2534,7 @@
                 ],
                 "summary": "Update a credit grant",
                 "description": "Update a credit grant with the specified configuration",
+                "operationId": "updateCreditGrant",
                 "parameters": [
                     {
                         "name": "id",
@@ -2550,7 +2601,8 @@
                     "CreditGrants"
                 ],
                 "summary": "Delete a credit grant",
-                "description": "Delete a credit grant",
+                "description": "Delete a credit grant. Plan-scoped grants are archived; subscription-scoped grants have their end date set (optional body with effective_date). Request body is optional.",
+                "operationId": "deleteCreditGrant",
                 "parameters": [
                     {
                         "name": "id",
@@ -2562,6 +2614,17 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "description": "Optional: effective_date for subscription-scoped grants",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/dto.DeleteCreditGrantRequest"
+                            }
+                        }
+                    },
+                    "required": false
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2598,7 +2661,8 @@
                     {
                         "ApiKeyAuth": []
                     }
-                ]
+                ],
+                "x-codegen-request-body-name": "body"
             }
         },
         "/creditnotes": {
@@ -2608,6 +2672,7 @@
                 ],
                 "summary": "List credit notes with filtering",
                 "description": "Lists credit notes with filtering",
+                "operationId": "listCreditNotes",
                 "parameters": [
                     {
                         "name": "credit_note_ids",
@@ -2820,6 +2885,7 @@
                 ],
                 "summary": "Create a new credit note",
                 "description": "Creates a new credit note",
+                "operationId": "createCreditNote",
                 "requestBody": {
                     "description": "Credit note request",
                     "content": {
@@ -2911,6 +2977,7 @@
                 ],
                 "summary": "Get a credit note by ID",
                 "description": "Retrieves a credit note by ID",
+                "operationId": "getCreditNoteById",
                 "parameters": [
                     {
                         "name": "id",
@@ -3001,6 +3068,7 @@
                 ],
                 "summary": "Process a draft credit note",
                 "description": "Processes a draft credit note",
+                "operationId": "processCreditNote",
                 "parameters": [
                     {
                         "name": "id",
@@ -3091,6 +3159,7 @@
                 ],
                 "summary": "Void a credit note",
                 "description": "Voids a credit note",
+                "operationId": "voidCreditNote",
                 "parameters": [
                     {
                         "name": "id",
@@ -3181,6 +3250,7 @@
                 ],
                 "summary": "Get customers",
                 "description": "Get customers",
+                "operationId": "listCustomers",
                 "parameters": [
                     {
                         "name": "customer_ids",
@@ -3348,6 +3418,7 @@
                 ],
                 "summary": "Update a customer",
                 "description": "Update a customer by id or external_customer_id",
+                "operationId": "updateCustomer",
                 "parameters": [
                     {
                         "name": "id",
@@ -3422,6 +3493,7 @@
                 ],
                 "summary": "Create a customer",
                 "description": "Create a customer",
+                "operationId": "createCustomer",
                 "requestBody": {
                     "description": "Customer",
                     "content": {
@@ -3480,6 +3552,7 @@
                 ],
                 "summary": "Get a customer by external id",
                 "description": "Get a customer by external id",
+                "operationId": "getCustomerByExternalId",
                 "parameters": [
                     {
                         "name": "external_id",
@@ -3547,6 +3620,7 @@
                 ],
                 "summary": "List customers by filter",
                 "description": "List customers by filter",
+                "operationId": "listCustomersByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -3605,6 +3679,7 @@
                 ],
                 "summary": "Get customer usage summary",
                 "description": "Get customer usage summary by customer_id or customer_lookup_key (external_customer_id)",
+                "operationId": "getCustomerUsageSummary",
                 "parameters": [
                     {
                         "name": "customer_id",
@@ -3703,12 +3778,21 @@
                 ],
                 "summary": "Get Customer Wallets",
                 "description": "Get all wallets for a customer by lookup key or id",
+                "operationId": "getCustomerWallets",
                 "parameters": [
                     {
                         "name": "expand",
                         "in": "query",
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from_cache",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
                         }
                     },
                     {
@@ -3793,6 +3877,7 @@
                 ],
                 "summary": "Get a customer",
                 "description": "Get a customer",
+                "operationId": "getCustomer",
                 "parameters": [
                     {
                         "name": "id",
@@ -3848,6 +3933,7 @@
                 ],
                 "summary": "Delete a customer",
                 "description": "Delete a customer",
+                "operationId": "deleteCustomer",
                 "parameters": [
                     {
                         "name": "id",
@@ -3899,6 +3985,7 @@
                 ],
                 "summary": "Get customer entitlements",
                 "description": "Get customer entitlements",
+                "operationId": "getCustomerEntitlements",
                 "parameters": [
                     {
                         "name": "id",
@@ -3980,6 +4067,7 @@
                 ],
                 "summary": "Get upcoming credit grant applications",
                 "description": "Get upcoming credit grant applications for a customer",
+                "operationId": "getCustomerUpcomingGrants",
                 "parameters": [
                     {
                         "name": "id",
@@ -4047,6 +4135,7 @@
                 ],
                 "summary": "Get a customer invoice summary",
                 "description": "Get a customer invoice summary",
+                "operationId": "getCustomerInvoiceSummary",
                 "parameters": [
                     {
                         "name": "id",
@@ -4104,6 +4193,7 @@
                 ],
                 "summary": "Get wallets by customer ID",
                 "description": "Get all wallets for a customer",
+                "operationId": "getWalletsByCustomerId",
                 "parameters": [
                     {
                         "name": "id",
@@ -4164,6 +4254,7 @@
                 ],
                 "summary": "Get entitlements",
                 "description": "Get entitlements with the specified filter",
+                "operationId": "getEntitlements",
                 "parameters": [
                     {
                         "name": "end_time",
@@ -4368,6 +4459,7 @@
                 ],
                 "summary": "Create a new entitlement",
                 "description": "Create a new entitlement with the specified configuration",
+                "operationId": "createEntitlement",
                 "requestBody": {
                     "description": "Entitlement configuration",
                     "content": {
@@ -4426,6 +4518,7 @@
                 ],
                 "summary": "Create multiple entitlements in bulk",
                 "description": "Create multiple entitlements with the specified configurations",
+                "operationId": "createEntitlementsBulk",
                 "requestBody": {
                     "description": "Bulk entitlement configuration",
                     "content": {
@@ -4484,6 +4577,7 @@
                 ],
                 "summary": "List entitlements by filter",
                 "description": "List entitlements by filter",
+                "operationId": "listEntitlementsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -4542,6 +4636,7 @@
                 ],
                 "summary": "Get an entitlement by ID",
                 "description": "Get an entitlement by ID",
+                "operationId": "getEntitlementById",
                 "parameters": [
                     {
                         "name": "id",
@@ -4597,6 +4692,7 @@
                 ],
                 "summary": "Update an entitlement",
                 "description": "Update an entitlement with the specified configuration",
+                "operationId": "updateEntitlement",
                 "parameters": [
                     {
                         "name": "id",
@@ -4664,6 +4760,7 @@
                 ],
                 "summary": "Delete an entitlement",
                 "description": "Delete an entitlement",
+                "operationId": "deleteEntitlement",
                 "parameters": [
                     {
                         "name": "id",
@@ -4721,6 +4818,7 @@
                 ],
                 "summary": "List entity integration mappings",
                 "description": "Retrieve a list of entity integration mappings with optional filtering",
+                "operationId": "listEntityIntegrationMappings",
                 "parameters": [
                     {
                         "name": "entity_id",
@@ -4825,6 +4923,7 @@
                 ],
                 "summary": "Create entity integration mapping",
                 "description": "Create a new entity integration mapping",
+                "operationId": "createEntityIntegrationMapping",
                 "requestBody": {
                     "description": "Entity integration mapping data",
                     "content": {
@@ -4903,6 +5002,7 @@
                 ],
                 "summary": "Get entity integration mapping",
                 "description": "Retrieve a specific entity integration mapping by ID",
+                "operationId": "getEntityIntegrationMapping",
                 "parameters": [
                     {
                         "name": "id",
@@ -4978,6 +5078,7 @@
                 ],
                 "summary": "Delete entity integration mapping",
                 "description": "Delete an entity integration mapping",
+                "operationId": "deleteEntityIntegrationMapping",
                 "parameters": [
                     {
                         "name": "id",
@@ -5049,6 +5150,7 @@
                 ],
                 "summary": "Get environments",
                 "description": "Get environments",
+                "operationId": "listEnvironments",
                 "parameters": [
                     {
                         "name": "expand",
@@ -5152,6 +5254,7 @@
                 ],
                 "summary": "Create an environment",
                 "description": "Create an environment",
+                "operationId": "createEnvironment",
                 "requestBody": {
                     "description": "Environment",
                     "content": {
@@ -5210,6 +5313,7 @@
                 ],
                 "summary": "Get an environment",
                 "description": "Get an environment",
+                "operationId": "getEnvironment",
                 "parameters": [
                     {
                         "name": "id",
@@ -5275,6 +5379,7 @@
                 ],
                 "summary": "Update an environment",
                 "description": "Update an environment",
+                "operationId": "updateEnvironment",
                 "parameters": [
                     {
                         "name": "id",
@@ -5354,6 +5459,7 @@
                 ],
                 "summary": "Ingest event",
                 "description": "Ingest a new event into the system",
+                "operationId": "ingestEvent",
                 "requestBody": {
                     "description": "Event data",
                     "content": {
@@ -5415,6 +5521,7 @@
                 ],
                 "summary": "Get usage analytics",
                 "description": "Retrieve comprehensive usage analytics with filtering, grouping, and time-series data",
+                "operationId": "getUsageAnalytics",
                 "requestBody": {
                     "description": "Request body",
                     "content": {
@@ -5473,6 +5580,7 @@
                 ],
                 "summary": "Bulk Ingest events",
                 "description": "Ingest bulk events into the system",
+                "operationId": "ingestEventsBulk",
                 "requestBody": {
                     "description": "Event data",
                     "content": {
@@ -5534,6 +5642,7 @@
                 ],
                 "summary": "Get hugging face inference data",
                 "description": "Retrieve hugging face inference data for events",
+                "operationId": "getHuggingfaceInferenceData",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -5570,6 +5679,7 @@
                 ],
                 "summary": "Get monitoring data",
                 "description": "Retrieve monitoring data for events including consumer lag and event metrics (last 24 hours by default)",
+                "operationId": "getEventsMonitoringData",
                 "parameters": [
                     {
                         "name": "window_size",
@@ -5626,6 +5736,7 @@
                 ],
                 "summary": "List raw events",
                 "description": "Retrieve raw events with pagination and filtering",
+                "operationId": "listRawEvents",
                 "requestBody": {
                     "description": "Request body",
                     "content": {
@@ -5684,6 +5795,7 @@
                 ],
                 "summary": "Get usage statistics",
                 "description": "Retrieve aggregated usage statistics for events",
+                "operationId": "getUsageStatistics",
                 "requestBody": {
                     "description": "Request body",
                     "content": {
@@ -5742,6 +5854,7 @@
                 ],
                 "summary": "Get usage by meter",
                 "description": "Retrieve aggregated usage statistics using meter configuration",
+                "operationId": "getUsageByMeter",
                 "requestBody": {
                     "description": "Request body",
                     "content": {
@@ -5810,6 +5923,7 @@
                 ],
                 "summary": "Get event by ID",
                 "description": "Retrieve event details and processing status with debug information",
+                "operationId": "getEventById",
                 "parameters": [
                     {
                         "name": "id",
@@ -5867,6 +5981,7 @@
                 ],
                 "summary": "List features",
                 "description": "List features with optional filtering",
+                "operationId": "listFeatures",
                 "parameters": [
                     {
                         "name": "end_time",
@@ -6035,6 +6150,7 @@
                 ],
                 "summary": "Create a new feature",
                 "description": "Create a new feature",
+                "operationId": "createFeature",
                 "requestBody": {
                     "description": "Feature to create",
                     "content": {
@@ -6093,6 +6209,7 @@
                 ],
                 "summary": "List features by filter",
                 "description": "List features by filter",
+                "operationId": "listFeaturesByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -6151,6 +6268,7 @@
                 ],
                 "summary": "Get a feature by ID",
                 "description": "Get a feature by ID",
+                "operationId": "getFeatureById",
                 "parameters": [
                     {
                         "name": "id",
@@ -6216,6 +6334,7 @@
                 ],
                 "summary": "Update a feature",
                 "description": "Update a feature by ID",
+                "operationId": "updateFeature",
                 "parameters": [
                     {
                         "name": "id",
@@ -6293,6 +6412,7 @@
                 ],
                 "summary": "Delete a feature",
                 "description": "Delete a feature by ID",
+                "operationId": "deleteFeature",
                 "parameters": [
                     {
                         "name": "id",
@@ -6360,6 +6480,7 @@
                 ],
                 "summary": "Create a group",
                 "description": "Create a new group for organizing entities (prices, plans, customers, etc.)",
+                "operationId": "createGroup",
                 "requestBody": {
                     "description": "Group",
                     "content": {
@@ -6418,6 +6539,7 @@
                 ],
                 "summary": "Get groups",
                 "description": "Get groups with optional filtering via query parameters",
+                "operationId": "listGroups",
                 "parameters": [
                     {
                         "name": "entity_type",
@@ -6522,6 +6644,7 @@
                 ],
                 "summary": "Get a group",
                 "description": "Get a group by ID",
+                "operationId": "getGroup",
                 "parameters": [
                     {
                         "name": "id",
@@ -6587,6 +6710,7 @@
                 ],
                 "summary": "Delete a group",
                 "description": "Delete a group and remove all entity associations",
+                "operationId": "deleteGroup",
                 "parameters": [
                     {
                         "name": "id",
@@ -6648,6 +6772,7 @@
                 ],
                 "summary": "List invoices",
                 "description": "List invoices with optional filtering",
+                "operationId": "listInvoices",
                 "parameters": [
                     {
                         "name": "amount_due_gt",
@@ -6801,6 +6926,38 @@
                         }
                     },
                     {
+                        "name": "period_end_gte",
+                        "in": "query",
+                        "description": "period_end_gte filters invoices with period_end >= value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "period_end_lte",
+                        "in": "query",
+                        "description": "period_end_lte filters invoices with period_end <= value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "period_start_gte",
+                        "in": "query",
+                        "description": "period_start_gte filters invoices with period_start >= value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "period_start_lte",
+                        "in": "query",
+                        "description": "period_start_lte filters invoices with period_start <= value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "skip_line_items",
                         "in": "query",
                         "description": "SkipLineItems if true, will not include line items in the response",
@@ -6890,6 +7047,7 @@
                 ],
                 "summary": "Create a new one off invoice",
                 "description": "Create a new one off invoice with the provided details",
+                "operationId": "createInvoice",
                 "requestBody": {
                     "description": "Invoice details",
                     "content": {
@@ -6948,6 +7106,7 @@
                 ],
                 "summary": "Get a preview invoice",
                 "description": "Get a preview invoice",
+                "operationId": "getInvoicePreview",
                 "requestBody": {
                     "description": "Preview Invoice Request",
                     "content": {
@@ -7006,6 +7165,7 @@
                 ],
                 "summary": "List invoices by filter",
                 "description": "List invoices by filter",
+                "operationId": "listInvoicesByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -7064,6 +7224,7 @@
                 ],
                 "summary": "Get an invoice by ID",
                 "description": "Get detailed information about an invoice",
+                "operationId": "getInvoiceById",
                 "parameters": [
                     {
                         "name": "id",
@@ -7140,6 +7301,7 @@
                 ],
                 "summary": "Update an invoice",
                 "description": "Update invoice details like PDF URL and due date.",
+                "operationId": "updateInvoice",
                 "parameters": [
                     {
                         "name": "id",
@@ -7219,6 +7381,7 @@
                 ],
                 "summary": "Trigger communication webhook for an invoice",
                 "description": "Triggers a communication webhook event containing all information about the invoice",
+                "operationId": "triggerInvoiceCommsWebhook",
                 "parameters": [
                     {
                         "name": "id",
@@ -7286,6 +7449,7 @@
                 ],
                 "summary": "Finalize an invoice",
                 "description": "Finalize a draft invoice",
+                "operationId": "finalizeInvoice",
                 "parameters": [
                     {
                         "name": "id",
@@ -7343,6 +7507,7 @@
                 ],
                 "summary": "Update invoice payment status",
                 "description": "Update the payment status of an invoice",
+                "operationId": "updateInvoicePaymentStatus",
                 "parameters": [
                     {
                         "name": "id",
@@ -7422,6 +7587,7 @@
                 ],
                 "summary": "Attempt payment for an invoice",
                 "description": "Attempt to pay an invoice using customer's available wallets",
+                "operationId": "attemptInvoicePayment",
                 "parameters": [
                     {
                         "name": "id",
@@ -7489,6 +7655,7 @@
                 ],
                 "summary": "Get PDF for an invoice",
                 "description": "Retrieve the PDF document for a specific invoice by its ID",
+                "operationId": "getInvoicePdf",
                 "parameters": [
                     {
                         "name": "id",
@@ -7565,6 +7732,7 @@
                 ],
                 "summary": "Recalculate invoice totals and line items",
                 "description": "Recalculate totals and line items for a draft invoice, useful when subscription line items or usage data has changed",
+                "operationId": "recalculateInvoice",
                 "parameters": [
                     {
                         "name": "id",
@@ -7640,6 +7808,7 @@
                 ],
                 "summary": "Void an invoice",
                 "description": "Void an invoice that hasn't been paid",
+                "operationId": "voidInvoice",
                 "parameters": [
                     {
                         "name": "id",
@@ -7697,6 +7866,7 @@
                 ],
                 "summary": "List payments",
                 "description": "List payments with the specified filter",
+                "operationId": "listPayments",
                 "parameters": [
                     {
                         "name": "currency",
@@ -7890,6 +8060,7 @@
                 ],
                 "summary": "Create a new payment",
                 "description": "Create a new payment with the specified configuration",
+                "operationId": "createPayment",
                 "requestBody": {
                     "description": "Payment configuration",
                     "content": {
@@ -7948,6 +8119,7 @@
                 ],
                 "summary": "Get a payment by ID",
                 "description": "Get a payment by ID",
+                "operationId": "getPaymentById",
                 "parameters": [
                     {
                         "name": "id",
@@ -8003,6 +8175,7 @@
                 ],
                 "summary": "Update a payment",
                 "description": "Update a payment with the specified configuration",
+                "operationId": "updatePayment",
                 "parameters": [
                     {
                         "name": "id",
@@ -8070,6 +8243,7 @@
                 ],
                 "summary": "Delete a payment",
                 "description": "Delete a payment",
+                "operationId": "deletePayment",
                 "parameters": [
                     {
                         "name": "id",
@@ -8127,6 +8301,7 @@
                 ],
                 "summary": "Process a payment",
                 "description": "Process a payment",
+                "operationId": "processPayment",
                 "parameters": [
                     {
                         "name": "id",
@@ -8184,6 +8359,7 @@
                 ],
                 "summary": "Get plans",
                 "description": "Get plans with optional filtering",
+                "operationId": "getPlans",
                 "parameters": [
                     {
                         "name": "end_time",
@@ -8320,6 +8496,7 @@
                 ],
                 "summary": "Create a new plan",
                 "description": "Create a new plan with the specified configuration",
+                "operationId": "createPlan",
                 "requestBody": {
                     "description": "Plan configuration",
                     "content": {
@@ -8378,6 +8555,7 @@
                 ],
                 "summary": "List plans by filter",
                 "description": "List plans by filter",
+                "operationId": "listPlansByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -8436,6 +8614,7 @@
                 ],
                 "summary": "Get a plan",
                 "description": "Get a plan by ID",
+                "operationId": "getPlan",
                 "parameters": [
                     {
                         "name": "id",
@@ -8501,6 +8680,7 @@
                 ],
                 "summary": "Update a plan",
                 "description": "Update a plan by ID",
+                "operationId": "updatePlan",
                 "parameters": [
                     {
                         "name": "id",
@@ -8578,6 +8758,7 @@
                 ],
                 "summary": "Delete a plan",
                 "description": "Delete a plan by ID",
+                "operationId": "deletePlan",
                 "parameters": [
                     {
                         "name": "id",
@@ -8645,6 +8826,7 @@
                 ],
                 "summary": "Get plan credit grants",
                 "description": "Get all credit grants for a plan",
+                "operationId": "getPlanCreditGrants",
                 "parameters": [
                     {
                         "name": "id",
@@ -8712,6 +8894,7 @@
                 ],
                 "summary": "Get plan entitlements",
                 "description": "Get all entitlements for a plan",
+                "operationId": "getPlanEntitlements",
                 "parameters": [
                     {
                         "name": "id",
@@ -8779,6 +8962,7 @@
                 ],
                 "summary": "Synchronize plan prices",
                 "description": "Synchronize current plan prices with all existing active subscriptions",
+                "operationId": "syncPlanPrices",
                 "parameters": [
                     {
                         "name": "id",
@@ -8856,6 +9040,7 @@
                 ],
                 "summary": "Create a customer portal session",
                 "description": "Generate a dashboard URL/token for a customer to access their billing information",
+                "operationId": "createCustomerPortalSession",
                 "parameters": [
                     {
                         "name": "external_id",
@@ -8923,6 +9108,7 @@
                 ],
                 "summary": "Get prices",
                 "description": "Get prices with the specified filter",
+                "operationId": "getPrices",
                 "parameters": [
                     {
                         "name": "allow_expired_prices",
@@ -9153,6 +9339,7 @@
                 ],
                 "summary": "Create a new price",
                 "description": "Create a new price with the specified configuration. Supports both regular and price unit configurations.",
+                "operationId": "createPrice",
                 "requestBody": {
                     "description": "Price configuration",
                     "content": {
@@ -9211,6 +9398,7 @@
                 ],
                 "summary": "Create multiple prices in bulk",
                 "description": "Create multiple prices with the specified configurations. Supports both regular and price unit configurations.",
+                "operationId": "createPricesBulk",
                 "requestBody": {
                     "description": "Bulk price configuration",
                     "content": {
@@ -9269,6 +9457,7 @@
                 ],
                 "summary": "Get price by lookup key",
                 "description": "Get price by lookup key",
+                "operationId": "getPriceByLookupKey",
                 "parameters": [
                     {
                         "name": "lookup_key",
@@ -9319,6 +9508,65 @@
                 ]
             }
         },
+        "/prices/search": {
+            "post": {
+                "tags": [
+                    "Prices"
+                ],
+                "summary": "List prices by filter",
+                "description": "List prices with filter",
+                "operationId": "listPricesByFilter",
+                "requestBody": {
+                    "description": "Filter with DSL support",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/types.PriceFilter"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/dto.ListPricesResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "x-codegen-request-body-name": "filter"
+            }
+        },
         "/prices/units": {
             "get": {
                 "tags": [
@@ -9326,6 +9574,7 @@
                 ],
                 "summary": "List price units",
                 "description": "Get a paginated list of price units with optional filtering",
+                "operationId": "listPriceUnits",
                 "parameters": [
                     {
                         "name": "status",
@@ -9402,6 +9651,7 @@
                 ],
                 "summary": "Create a new price unit",
                 "description": "Create a new price unit with the provided details",
+                "operationId": "createPriceUnit",
                 "requestBody": {
                     "description": "Price unit details",
                     "content": {
@@ -9450,6 +9700,7 @@
                 ],
                 "summary": "Get a price unit by code",
                 "description": "Get a price unit by code",
+                "operationId": "getPriceUnitByCode",
                 "parameters": [
                     {
                         "name": "code",
@@ -9517,6 +9768,7 @@
                 ],
                 "summary": "List price units by filter",
                 "description": "List price units by filter",
+                "operationId": "listPriceUnitsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -9575,6 +9827,7 @@
                 ],
                 "summary": "Get a price unit by ID",
                 "description": "Get a price unit by ID",
+                "operationId": "getPriceUnitById",
                 "parameters": [
                     {
                         "name": "id",
@@ -9630,6 +9883,7 @@
                 ],
                 "summary": "Update a price unit",
                 "description": "Update an existing price unit with the provided details. Only name and metadata can be updated.",
+                "operationId": "updatePriceUnit",
                 "parameters": [
                     {
                         "name": "id",
@@ -9697,6 +9951,7 @@
                 ],
                 "summary": "Delete a price unit",
                 "description": "Delete an existing price unit.",
+                "operationId": "deletePriceUnit",
                 "parameters": [
                     {
                         "name": "id",
@@ -9754,6 +10009,7 @@
                 ],
                 "summary": "Get a price by ID",
                 "description": "Get a price by ID with expanded meter and price unit information",
+                "operationId": "getPriceById",
                 "parameters": [
                     {
                         "name": "id",
@@ -9809,6 +10065,7 @@
                 ],
                 "summary": "Update a price",
                 "description": "Update a price with the specified configuration",
+                "operationId": "updatePrice",
                 "parameters": [
                     {
                         "name": "id",
@@ -9876,6 +10133,7 @@
                 ],
                 "summary": "Delete a price",
                 "description": "Delete a price",
+                "operationId": "deletePrice",
                 "parameters": [
                     {
                         "name": "id",
@@ -9945,6 +10203,7 @@
                 ],
                 "summary": "List all RBAC roles",
                 "description": "Returns all available roles with their permissions, names, and descriptions",
+                "operationId": "listRbacRoles",
                 "responses": {
                     "200": {
                         "description": "List of roles",
@@ -9985,6 +10244,7 @@
                 ],
                 "summary": "Get a specific RBAC role",
                 "description": "Returns details of a specific role including permissions, name, and description",
+                "operationId": "getRbacRole",
                 "parameters": [
                     {
                         "name": "id",
@@ -10036,6 +10296,7 @@
                 ],
                 "summary": "List API keys",
                 "description": "Get a paginated list of API keys",
+                "operationId": "listApiKeys",
                 "parameters": [
                     {
                         "name": "limit",
@@ -10106,6 +10367,7 @@
                 ],
                 "summary": "Create a new API key",
                 "description": "Create a new API key. Provide 'service_account_id' in body to create API key for a service account, otherwise creates for authenticated user.",
+                "operationId": "createApiKey",
                 "requestBody": {
                     "description": "API key creation request\\",
                     "content": {
@@ -10164,6 +10426,7 @@
                 ],
                 "summary": "Delete an API key",
                 "description": "Delete an API key by ID",
+                "operationId": "deleteApiKey",
                 "parameters": [
                     {
                         "name": "id",
@@ -10215,6 +10478,7 @@
                 ],
                 "summary": "Get integration details",
                 "description": "Get details of a specific integration",
+                "operationId": "getIntegration",
                 "parameters": [
                     {
                         "name": "provider",
@@ -10272,6 +10536,7 @@
                 ],
                 "summary": "Create or update an integration",
                 "description": "Create or update integration credentials",
+                "operationId": "createOrUpdateIntegration",
                 "parameters": [
                     {
                         "name": "provider",
@@ -10341,6 +10606,7 @@
                 ],
                 "summary": "List linked integrations",
                 "description": "Get a list of unique providers which have a valid linked integration secret",
+                "operationId": "listLinkedIntegrations",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -10377,6 +10643,7 @@
                 ],
                 "summary": "Delete an integration",
                 "description": "Delete integration credentials",
+                "operationId": "deleteIntegration",
                 "parameters": [
                     {
                         "name": "id",
@@ -10428,6 +10695,7 @@
                 ],
                 "summary": "List subscriptions",
                 "description": "Get subscriptions with optional filtering",
+                "operationId": "listSubscriptions",
                 "parameters": [
                     {
                         "name": "active_at",
@@ -10544,6 +10812,19 @@
                                 "asc",
                                 "desc"
                             ]
+                        }
+                    },
+                    {
+                        "name": "parent_subscription_ids",
+                        "in": "query",
+                        "description": "ParentSubscriptionIDs filters by parent subscription IDs",
+                        "style": "form",
+                        "explode": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         }
                     },
                     {
@@ -10669,6 +10950,7 @@
                 ],
                 "summary": "Create subscription",
                 "description": "Create a new subscription",
+                "operationId": "createSubscription",
                 "requestBody": {
                     "description": "Subscription Request",
                     "content": {
@@ -10727,6 +11009,7 @@
                 ],
                 "summary": "Add addon to subscription",
                 "description": "Add an addon to a subscription",
+                "operationId": "addSubscriptionAddon",
                 "requestBody": {
                     "description": "Add Addon Request",
                     "content": {
@@ -10783,6 +11066,7 @@
                 ],
                 "summary": "Remove addon from subscription",
                 "description": "Remove an addon from a subscription",
+                "operationId": "removeSubscriptionAddon",
                 "requestBody": {
                     "description": "Remove Addon Request",
                     "content": {
@@ -10841,6 +11125,7 @@
                 ],
                 "summary": "Update subscription line item",
                 "description": "Update a subscription line item by terminating the existing one and creating a new one",
+                "operationId": "updateSubscriptionLineItem",
                 "parameters": [
                     {
                         "name": "id",
@@ -10908,6 +11193,7 @@
                 ],
                 "summary": "Delete subscription line item",
                 "description": "Delete a subscription line item by setting its end date",
+                "operationId": "deleteSubscriptionLineItem",
                 "parameters": [
                     {
                         "name": "id",
@@ -10977,6 +11263,7 @@
                 ],
                 "summary": "List subscriptions by filter",
                 "description": "List subscriptions by filter",
+                "operationId": "listSubscriptionsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -11035,6 +11322,7 @@
                 ],
                 "summary": "Get usage by subscription",
                 "description": "Get usage for a subscription",
+                "operationId": "getSubscriptionUsage",
                 "requestBody": {
                     "description": "Usage request",
                     "content": {
@@ -11093,6 +11381,7 @@
                 ],
                 "summary": "Get subscription",
                 "description": "Get a subscription by ID",
+                "operationId": "getSubscription",
                 "parameters": [
                     {
                         "name": "id",
@@ -11141,6 +11430,74 @@
                         "ApiKeyAuth": []
                     }
                 ]
+            },
+            "put": {
+                "tags": [
+                    "Subscriptions"
+                ],
+                "summary": "Update subscription",
+                "description": "Update a subscription. parent_subscription_id can be set to another subscription ID, cleared by sending \"\", or left unchanged if omitted.",
+                "operationId": "updateSubscription",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Subscription ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update Subscription Request",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/dto.UpdateSubscriptionRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/dto.SubscriptionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "x-codegen-request-body-name": "request"
             }
         },
         "/subscriptions/{id}/activate": {
@@ -11150,6 +11507,7 @@
                 ],
                 "summary": "Activate draft subscription",
                 "description": "Activate a draft subscription with a new start date",
+                "operationId": "activateSubscription",
                 "parameters": [
                     {
                         "name": "id",
@@ -11219,6 +11577,7 @@
                 ],
                 "summary": "Get active addon associations",
                 "description": "Get active addon associations for a subscription",
+                "operationId": "getSubscriptionAddonAssociations",
                 "parameters": [
                     {
                         "name": "id",
@@ -11289,6 +11648,7 @@
                 ],
                 "summary": "Cancel subscription",
                 "description": "Cancel a subscription with enhanced proration support",
+                "operationId": "cancelSubscription",
                 "parameters": [
                     {
                         "name": "id",
@@ -11358,6 +11718,7 @@
                 ],
                 "summary": "Execute subscription plan change",
                 "description": "Execute a subscription plan change, including proration and invoice generation",
+                "operationId": "executeSubscriptionChange",
                 "parameters": [
                     {
                         "name": "id",
@@ -11437,6 +11798,7 @@
                 ],
                 "summary": "Preview subscription plan change",
                 "description": "Preview the impact of changing a subscription's plan, including proration calculations",
+                "operationId": "previewSubscriptionChange",
                 "parameters": [
                     {
                         "name": "id",
@@ -11516,6 +11878,7 @@
                 ],
                 "summary": "Get subscription entitlements",
                 "description": "Get all entitlements for a subscription",
+                "operationId": "getSubscriptionEntitlements",
                 "parameters": [
                     {
                         "name": "id",
@@ -11596,6 +11959,7 @@
                 ],
                 "summary": "Get upcoming credit grant applications",
                 "description": "Get upcoming credit grant applications for a subscription",
+                "operationId": "getSubscriptionUpcomingGrants",
                 "parameters": [
                     {
                         "name": "id",
@@ -11656,6 +12020,86 @@
                 ]
             }
         },
+        "/subscriptions/{id}/lineitems": {
+            "post": {
+                "tags": [
+                    "Subscriptions"
+                ],
+                "summary": "Create subscription line item",
+                "description": "Add a new line item to an existing subscription (price_id or inline price)",
+                "operationId": "createSubscriptionLineItem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Subscription ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create Line Item Request",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/dto.CreateSubscriptionLineItemRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/dto.SubscriptionLineItemResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errors.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "x-codegen-request-body-name": "request"
+            }
+        },
         "/subscriptions/{id}/pause": {
             "post": {
                 "tags": [
@@ -11663,6 +12107,7 @@
                 ],
                 "summary": "Pause a subscription",
                 "description": "Pause a subscription with the specified parameters",
+                "operationId": "pauseSubscription",
                 "parameters": [
                     {
                         "name": "id",
@@ -11742,6 +12187,7 @@
                 ],
                 "summary": "List all pauses for a subscription",
                 "description": "List all pauses for a subscription",
+                "operationId": "listSubscriptionPauses",
                 "parameters": [
                     {
                         "name": "id",
@@ -11807,6 +12253,7 @@
                 ],
                 "summary": "Resume a paused subscription",
                 "description": "Resume a paused subscription with the specified parameters",
+                "operationId": "resumeSubscription",
                 "parameters": [
                     {
                         "name": "id",
@@ -11886,6 +12333,7 @@
                 ],
                 "summary": "Get subscription V2",
                 "description": "Get a subscription by ID with optional expand parameters",
+                "operationId": "getSubscriptionV2",
                 "parameters": [
                     {
                         "name": "id",
@@ -11951,6 +12399,7 @@
                 ],
                 "summary": "List tasks",
                 "description": "List tasks with optional filtering",
+                "operationId": "listTasks",
                 "parameters": [
                     {
                         "name": "created_by",
@@ -12158,6 +12607,7 @@
                 ],
                 "summary": "Create a new task",
                 "description": "Create a new task for processing files asynchronously",
+                "operationId": "createTask",
                 "requestBody": {
                     "description": "Task configuration",
                     "content": {
@@ -12216,6 +12666,7 @@
                 ],
                 "summary": "Get task processing result",
                 "description": "Get the result of a task processing workflow",
+                "operationId": "getTaskResult",
                 "parameters": [
                     {
                         "name": "workflow_id",
@@ -12283,6 +12734,7 @@
                 ],
                 "summary": "List scheduled tasks",
                 "description": "Get a list of scheduled tasks with optional filters",
+                "operationId": "listScheduledTasks",
                 "parameters": [
                     {
                         "name": "limit",
@@ -12377,6 +12829,7 @@
                 ],
                 "summary": "Create a scheduled task",
                 "description": "Create a new scheduled task for data export",
+                "operationId": "createScheduledTask",
                 "requestBody": {
                     "description": "Scheduled Task",
                     "content": {
@@ -12435,6 +12888,7 @@
                 ],
                 "summary": "Schedule update billing period",
                 "description": "Schedule an update billing period workflow",
+                "operationId": "scheduleUpdateBillingPeriod",
                 "requestBody": {
                     "description": "Schedule Update Billing Period Request",
                     "content": {
@@ -12493,6 +12947,7 @@
                 ],
                 "summary": "Get a scheduled task",
                 "description": "Get a scheduled task by ID",
+                "operationId": "getScheduledTask",
                 "parameters": [
                     {
                         "name": "id",
@@ -12558,6 +13013,7 @@
                 ],
                 "summary": "Update a scheduled task",
                 "description": "Update a scheduled task by ID - Only enabled field can be changed (pause/resume)",
+                "operationId": "updateScheduledTask",
                 "parameters": [
                     {
                         "name": "id",
@@ -12635,6 +13091,7 @@
                 ],
                 "summary": "Delete a scheduled task",
                 "description": "Archive a scheduled task by ID (soft delete) - Sets status to archived and deletes from Temporal",
+                "operationId": "deleteScheduledTask",
                 "parameters": [
                     {
                         "name": "id",
@@ -12696,6 +13153,7 @@
                 ],
                 "summary": "Trigger force run",
                 "description": "Trigger a force run export immediately for a scheduled task with optional custom time range",
+                "operationId": "triggerScheduledTaskRun",
                 "parameters": [
                     {
                         "name": "id",
@@ -12775,6 +13233,7 @@
                 ],
                 "summary": "Get a task",
                 "description": "Get a task by ID",
+                "operationId": "getTask",
                 "parameters": [
                     {
                         "name": "id",
@@ -12842,6 +13301,7 @@
                 ],
                 "summary": "Download task export file",
                 "description": "Generate a presigned URL for downloading an exported file (supports both Flexprice-managed and customer-owned S3)",
+                "operationId": "downloadTaskExport",
                 "parameters": [
                     {
                         "name": "id",
@@ -12912,6 +13372,7 @@
                 ],
                 "summary": "Update task status",
                 "description": "Update a task's status",
+                "operationId": "updateTaskStatus",
                 "parameters": [
                     {
                         "name": "id",
@@ -12991,6 +13452,7 @@
                 ],
                 "summary": "List tax associations",
                 "description": "List tax associations",
+                "operationId": "listTaxAssociations",
                 "parameters": [
                     {
                         "name": "entity_type",
@@ -13061,6 +13523,7 @@
                 ],
                 "summary": "Create Tax Association",
                 "description": "Create a new tax association",
+                "operationId": "createTaxAssociation",
                 "requestBody": {
                     "description": "Tax Config Request",
                     "content": {
@@ -13119,6 +13582,7 @@
                 ],
                 "summary": "Get Tax Association",
                 "description": "Get a tax association by ID",
+                "operationId": "getTaxAssociation",
                 "parameters": [
                     {
                         "name": "id",
@@ -13174,6 +13638,7 @@
                 ],
                 "summary": "Update tax association",
                 "description": "Update a tax association by ID",
+                "operationId": "updateTaxAssociation",
                 "parameters": [
                     {
                         "name": "id",
@@ -13241,6 +13706,7 @@
                 ],
                 "summary": "Delete tax association",
                 "description": "Delete a tax association by ID",
+                "operationId": "deleteTaxAssociation",
                 "parameters": [
                     {
                         "name": "id",
@@ -13298,6 +13764,7 @@
                 ],
                 "summary": "Get tax rates",
                 "description": "Get tax rates",
+                "operationId": "getTaxRates",
                 "parameters": [
                     {
                         "name": "end_time",
@@ -13464,6 +13931,7 @@
                 ],
                 "summary": "Create a tax rate",
                 "description": "Create a tax rate",
+                "operationId": "createTaxRate",
                 "requestBody": {
                     "description": "Tax rate to create",
                     "content": {
@@ -13522,6 +13990,7 @@
                 ],
                 "summary": "Get a tax rate",
                 "description": "Get a tax rate",
+                "operationId": "getTaxRate",
                 "parameters": [
                     {
                         "name": "id",
@@ -13577,6 +14046,7 @@
                 ],
                 "summary": "Update a tax rate",
                 "description": "Update a tax rate",
+                "operationId": "updateTaxRate",
                 "parameters": [
                     {
                         "name": "id",
@@ -13644,6 +14114,7 @@
                 ],
                 "summary": "Delete a tax rate",
                 "description": "Delete a tax rate",
+                "operationId": "deleteTaxRate",
                 "parameters": [
                     {
                         "name": "id",
@@ -13695,6 +14166,7 @@
                 ],
                 "summary": "Get billing usage for the current tenant",
                 "description": "Get the subscription and usage details for the current tenant",
+                "operationId": "getTenantBillingUsage",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -13751,6 +14223,7 @@
                 ],
                 "summary": "Create a new tenant",
                 "description": "Create a new tenant",
+                "operationId": "createTenant",
                 "requestBody": {
                     "description": "Create tenant request",
                     "content": {
@@ -13809,6 +14282,7 @@
                 ],
                 "summary": "Update a tenant",
                 "description": "Update a tenant's details including name and billing information",
+                "operationId": "updateTenant",
                 "requestBody": {
                     "description": "Update tenant request",
                     "content": {
@@ -13877,6 +14351,7 @@
                 ],
                 "summary": "Get tenant by ID",
                 "description": "Get tenant by ID",
+                "operationId": "getTenantById",
                 "parameters": [
                     {
                         "name": "id",
@@ -13934,6 +14409,7 @@
                 ],
                 "summary": "Create service account",
                 "description": "Create a new service account with required roles. Only service accounts can be created via this endpoint.",
+                "operationId": "createUser",
                 "requestBody": {
                     "description": "Create service account request (type must be 'service_account', roles are required)",
                     "content": {
@@ -13992,6 +14468,7 @@
                 ],
                 "summary": "Get user info",
                 "description": "Get the current user's information",
+                "operationId": "getUserInfo",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -14038,6 +14515,7 @@
                 ],
                 "summary": "List users with filters",
                 "description": "Search and filter users by type (user/service_account), roles, etc.",
+                "operationId": "listUsersByFilter",
                 "requestBody": {
                     "description": "Filter parameters",
                     "content": {
@@ -14096,6 +14574,7 @@
                 ],
                 "summary": "List all subscription schedules",
                 "description": "Retrieves subscription schedules with optional filtering",
+                "operationId": "listAllSubscriptionSchedules",
                 "parameters": [
                     {
                         "name": "pending_only",
@@ -14151,6 +14630,7 @@
                 ],
                 "summary": "Get subscription schedule",
                 "description": "Retrieves details of a specific subscription schedule",
+                "operationId": "getSubscriptionSchedule",
                 "parameters": [
                     {
                         "name": "id",
@@ -14183,6 +14663,7 @@
                 ],
                 "summary": "Cancel subscription schedule",
                 "description": "Cancels a pending subscription schedule. Supports two modes: 1) By schedule ID in path, or 2) By subscription ID + schedule type in request body",
+                "operationId": "cancelSubscriptionSchedule",
                 "parameters": [
                     {
                         "name": "schedule_id",
@@ -14227,6 +14708,7 @@
                 ],
                 "summary": "List subscription schedules",
                 "description": "Retrieves all schedules for a specific subscription",
+                "operationId": "listSubscriptionSchedules",
                 "parameters": [
                     {
                         "name": "subscription_id",
@@ -14259,6 +14741,7 @@
                 ],
                 "summary": "List wallets",
                 "description": "List wallets with optional filtering",
+                "operationId": "listWallets",
                 "parameters": [
                     {
                         "name": "alert_enabled",
@@ -14342,14 +14825,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "description": "Expand fields (e.g., credits_available_breakdown)",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -14396,6 +14871,7 @@
                 ],
                 "summary": "Create a new wallet",
                 "description": "Create a new wallet for a customer",
+                "operationId": "createWallet",
                 "requestBody": {
                     "description": "Create wallet request",
                     "content": {
@@ -14454,6 +14930,7 @@
                 ],
                 "summary": "List wallets by filter",
                 "description": "List wallets by filter",
+                "operationId": "listWalletsByFilter",
                 "requestBody": {
                     "description": "Filter",
                     "content": {
@@ -14512,6 +14989,7 @@
                 ],
                 "summary": "List wallet transactions by filter",
                 "description": "List wallet transactions by filter",
+                "operationId": "listWalletTransactionsByFilter",
                 "parameters": [
                     {
                         "name": "expand",
@@ -14580,6 +15058,7 @@
                 ],
                 "summary": "Get wallet by ID",
                 "description": "Get a wallet by its ID",
+                "operationId": "getWalletById",
                 "parameters": [
                     {
                         "name": "id",
@@ -14645,6 +15124,7 @@
                 ],
                 "summary": "Update a wallet",
                 "description": "Update a wallet's details including auto top-up configuration",
+                "operationId": "updateWallet",
                 "parameters": [
                     {
                         "name": "id",
@@ -14724,6 +15204,7 @@
                 ],
                 "summary": "Get wallet balance",
                 "description": "Get real-time balance of a wallet",
+                "operationId": "getWalletBalance",
                 "parameters": [
                     {
                         "name": "id",
@@ -14799,6 +15280,7 @@
                 ],
                 "summary": "Terminate a wallet",
                 "description": "Terminates a wallet by closing it and debiting remaining balance",
+                "operationId": "terminateWallet",
                 "parameters": [
                     {
                         "name": "id",
@@ -14866,6 +15348,7 @@
                 ],
                 "summary": "Top up wallet",
                 "description": "Add credits to a wallet",
+                "operationId": "topUpWallet",
                 "parameters": [
                     {
                         "name": "id",
@@ -14945,6 +15428,7 @@
                 ],
                 "summary": "Get wallet transactions",
                 "description": "Get transactions for a wallet with pagination",
+                "operationId": "getWalletTransactions",
                 "parameters": [
                     {
                         "name": "id",
@@ -15096,7 +15580,8 @@
                                 "CREDIT_NOTE",
                                 "CREDIT_EXPIRED",
                                 "WALLET_TERMINATION",
-                                "MANUAL_BALANCE_DEBIT"
+                                "MANUAL_BALANCE_DEBIT",
+                                "CREDIT_ADJUSTMENT"
                             ],
                             "x-enum-varnames": [
                                 "TransactionReasonInvoicePayment",
@@ -15107,7 +15592,8 @@
                                 "TransactionReasonCreditNote",
                                 "TransactionReasonCreditExpired",
                                 "TransactionReasonWalletTermination",
-                                "TransactionReasonManualBalanceDebit"
+                                "TransactionReasonManualBalanceDebit",
+                                "TransactionReasonCreditAdjustment"
                             ]
                         },
                         "x-enum-varnames": [
@@ -15119,7 +15605,8 @@
                             "TransactionReasonCreditNote",
                             "TransactionReasonCreditExpired",
                             "TransactionReasonWalletTermination",
-                            "TransactionReasonManualBalanceDebit"
+                            "TransactionReasonManualBalanceDebit",
+                            "TransactionReasonCreditAdjustment"
                         ]
                     },
                     {
@@ -15220,6 +15707,7 @@
                 ],
                 "summary": "Handle Chargebee webhook events",
                 "description": "Process incoming Chargebee webhook events for payment status updates",
+                "operationId": "handleChargebeeWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15303,6 +15791,7 @@
                 ],
                 "summary": "Handle HubSpot webhook events",
                 "description": "Process incoming HubSpot webhook events for deal closed won and customer creation",
+                "operationId": "handleHubspotWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15347,6 +15836,57 @@
                 }
             }
         },
+        "/webhooks/moyasar/{tenant_id}/{environment_id}": {
+            "post": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "summary": "Handle Moyasar webhook events",
+                "description": "Process incoming Moyasar webhook events for payment status updates",
+                "operationId": "handleMoyasarWebhook",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "in": "path",
+                        "description": "Tenant ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "environment_id",
+                        "in": "path",
+                        "description": "Environment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Moyasar-Signature",
+                        "in": "header",
+                        "description": "Moyasar webhook signature",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webhook received (always returns 200)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/webhooks/nomod/{tenant_id}/{environment_id}": {
             "post": {
                 "tags": [
@@ -15354,6 +15894,7 @@
                 ],
                 "summary": "Handle Nomod webhook events",
                 "description": "Process incoming Nomod webhook events for payment and invoice payments",
+                "operationId": "handleNomodWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15415,6 +15956,7 @@
                 ],
                 "summary": "Handle QuickBooks webhook events",
                 "description": "Process incoming QuickBooks webhook events for payment sync",
+                "operationId": "handleQuickbooksWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15498,6 +16040,7 @@
                 ],
                 "summary": "Handle Razorpay webhook events",
                 "description": "Process incoming Razorpay webhook events for payment capture and failure",
+                "operationId": "handleRazorpayWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15549,6 +16092,7 @@
                 ],
                 "summary": "Handle Stripe webhook events",
                 "description": "Process incoming Stripe webhook events for payment status updates and customer creation",
+                "operationId": "handleStripeWebhook",
                 "parameters": [
                     {
                         "name": "tenant_id",
@@ -15666,6 +16210,81 @@
                     },
                     "timeRangeFilter": {
                         "$ref": "#/components/schemas/types.TimeRangeFilter"
+                    }
+                }
+            },
+            "coupon_application.CouponApplication": {
+                "type": "object",
+                "properties": {
+                    "applied_at": {
+                        "type": "string"
+                    },
+                    "coupon_association_id": {
+                        "type": "string"
+                    },
+                    "coupon_id": {
+                        "type": "string"
+                    },
+                    "coupon_snapshot": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "discount_percentage": {
+                        "type": "string"
+                    },
+                    "discount_type": {
+                        "$ref": "#/components/schemas/types.CouponType"
+                    },
+                    "discounted_amount": {
+                        "type": "string"
+                    },
+                    "environment_id": {
+                        "type": "string"
+                    },
+                    "final_price": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "invoice_id": {
+                        "type": "string"
+                    },
+                    "invoice_line_item_id": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "original_price": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/types.Status"
+                    },
+                    "subscription_id": {
+                        "type": "string"
+                    },
+                    "tenant_id": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    },
+                    "updated_by": {
+                        "type": "string"
                     }
                 }
             },
@@ -16032,14 +16651,6 @@
                     }
                 }
             },
-            "dto.AlertConfig": {
-                "type": "object",
-                "properties": {
-                    "threshold": {
-                        "$ref": "#/components/schemas/dto.Threshold"
-                    }
-                }
-            },
             "dto.AlertLogResponse": {
                 "type": "object",
                 "properties": {
@@ -16210,6 +16821,9 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "cancel_immediately_inovice_policy": {
+                        "$ref": "#/components/schemas/types.CancelImmediatelyInvoicePolicy"
+                    },
                     "cancellation_type": {
                         "$ref": "#/components/schemas/types.CancellationType"
                     },
@@ -16912,6 +17526,9 @@
                     "credits": {
                         "type": "string"
                     },
+                    "end_date": {
+                        "type": "string"
+                    },
                     "expiration_duration": {
                         "type": "integer"
                     },
@@ -16941,6 +17558,9 @@
                     },
                     "scope": {
                         "$ref": "#/components/schemas/types.CreditGrantScope"
+                    },
+                    "start_date": {
+                        "type": "string"
                     },
                     "subscription_id": {
                         "type": "string"
@@ -17300,6 +17920,14 @@
                         "type": "string",
                         "description": "entity_type is the optional type of the entity associated with this line item"
                     },
+                    "invoice_level_discount": {
+                        "type": "string",
+                        "description": "invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice."
+                    },
+                    "line_item_discount": {
+                        "type": "string",
+                        "description": "line_item_discount is the discount amount in invoice currency applied directly to this line item."
+                    },
                     "metadata": {
                         "$ref": "#/components/schemas/types.Metadata"
                     },
@@ -17326,6 +17954,10 @@
                     "plan_id": {
                         "type": "string",
                         "description": "TODO: !REMOVE after migration\nplan_id is the optional unique identifier of the plan associated with this line item"
+                    },
+                    "prepaid_credits_applied": {
+                        "type": "string",
+                        "description": "prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application."
                     },
                     "price_id": {
                         "type": "string",
@@ -17397,17 +18029,13 @@
                         "type": "string",
                         "description": "due_date is the date by which payment is expected"
                     },
-                    "environment_id": {
-                        "type": "string",
-                        "description": "environment_id is the unique identifier of the environment this invoice belongs to"
-                    },
                     "idempotency_key": {
                         "type": "string",
                         "description": "idempotency_key is an optional key used to prevent duplicate invoice creation"
                     },
                     "invoice_coupons": {
                         "type": "array",
-                        "description": "Invoice Coupns",
+                        "description": "Invoice Coupons",
                         "items": {
                             "$ref": "#/components/schemas/dto.InvoiceCoupon"
                         }
@@ -17456,7 +18084,7 @@
                     },
                     "prepared_tax_rates": {
                         "type": "array",
-                        "description": "prepared_tax_rates contains the tax rates pre-resolved by the caller (e.g., billing service)\nThese are applied at invoice level by the invoice service without further resolution",
+                        "description": "prepared_tax_rates contains the tax rates pre-resolved by the caller (e.g., billing service)",
                         "items": {
                             "$ref": "#/components/schemas/dto.TaxRateResponse"
                         }
@@ -17486,6 +18114,10 @@
                     "total": {
                         "type": "string",
                         "description": "total is the total amount of the invoice including taxes and discounts"
+                    },
+                    "total_prepaid_applied": {
+                        "type": "string",
+                        "description": "total_prepaid_applied is the total amount of prepaid applied to this invoice."
                     }
                 }
             },
@@ -17829,6 +18461,61 @@
                     }
                 }
             },
+            "dto.CreateSubscriptionLineItemRequest": {
+                "type": "object",
+                "properties": {
+                    "commitment_amount": {
+                        "type": "number",
+                        "description": "Commitment fields"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
+                    },
+                    "commitment_overage_factor": {
+                        "type": "number"
+                    },
+                    "commitment_quantity": {
+                        "type": "number"
+                    },
+                    "commitment_true_up_enabled": {
+                        "type": "boolean"
+                    },
+                    "commitment_type": {
+                        "$ref": "#/components/schemas/types.CommitmentType"
+                    },
+                    "commitment_windowed": {
+                        "type": "boolean"
+                    },
+                    "display_name": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "price": {
+                        "$ref": "#/components/schemas/dto.SubscriptionPriceCreateRequest"
+                    },
+                    "price_id": {
+                        "type": "string",
+                        "description": "PriceID references an existing price (plan, addon, or subscription-scoped). Exactly one of price_id or price must be set."
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "subscription_phase_id": {
+                        "type": "string"
+                    }
+                }
+            },
             "dto.CreateSubscriptionRequest": {
                 "required": [
                     "billing_cadence",
@@ -17863,6 +18550,9 @@
                     "commitment_amount": {
                         "type": "string",
                         "description": "CommitmentAmount is the minimum amount a customer commits to paying for a billing period"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "coupons": {
                         "type": "array",
@@ -17921,6 +18611,13 @@
                             }
                         }
                     },
+                    "line_items": {
+                        "type": "array",
+                        "description": "LineItems are extra line items to add at creation (each with price_id or price), in addition to plan prices",
+                        "items": {
+                            "$ref": "#/components/schemas/dto.CreateSubscriptionLineItemRequest"
+                        }
+                    },
                     "lookup_key": {
                         "type": "string"
                     },
@@ -17948,8 +18645,15 @@
                             "$ref": "#/components/schemas/dto.OverrideLineItemRequest"
                         }
                     },
+                    "parent_subscription_id": {
+                        "type": "string",
+                        "description": "ParentSubscriptionID is the parent subscription ID for hierarchy (e.g. child subscription under a parent)"
+                    },
                     "payment_behavior": {
                         "$ref": "#/components/schemas/types.PaymentBehavior"
+                    },
+                    "payment_terms": {
+                        "$ref": "#/components/schemas/types.PaymentTerms"
                     },
                     "phases": {
                         "type": "array",
@@ -18131,18 +18835,11 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "alert_config": {
-                        "$ref": "#/components/schemas/dto.AlertConfig"
-                    },
-                    "alert_enabled": {
-                        "type": "boolean",
-                        "description": "alert_enabled is the flag to enable alerts for the wallet\ndefaults to true, can be explicitly set to false to disable alerts"
+                    "alert_settings": {
+                        "$ref": "#/components/schemas/types.AlertSettings"
                     },
                     "auto_topup": {
                         "$ref": "#/components/schemas/types.AutoTopup"
-                    },
-                    "config": {
-                        "$ref": "#/components/schemas/types.WalletConfig"
                     },
                     "conversion_rate": {
                         "type": "string",
@@ -18177,9 +18874,6 @@
                     },
                     "metadata": {
                         "$ref": "#/components/schemas/types.Metadata"
-                    },
-                    "name": {
-                        "type": "string"
                     },
                     "price_unit": {
                         "type": "string",
@@ -18452,6 +19146,29 @@
                     }
                 }
             },
+            "dto.CustomAnalyticItem": {
+                "type": "object",
+                "properties": {
+                    "feature_name": {
+                        "type": "string",
+                        "description": "Name of the feature this applies to"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Calculation name (e.g., \"Revenue per Minute\")"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "\"feature\", \"meter\", \"event_name\""
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            },
             "dto.CustomerEntitlementsResponse": {
                 "type": "object",
                 "properties": {
@@ -18675,6 +19392,15 @@
                     },
                     "message": {
                         "type": "string"
+                    }
+                }
+            },
+            "dto.DeleteCreditGrantRequest": {
+                "type": "object",
+                "properties": {
+                    "effective_date": {
+                        "type": "string",
+                        "description": "EffectiveDate is optional; when set (subscription scope) the grant end date is set to this time."
                     }
                 }
             },
@@ -19391,6 +20117,12 @@
                     "currency": {
                         "type": "string"
                     },
+                    "custom_analytics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/dto.CustomAnalyticItem"
+                        }
+                    },
                     "items": {
                         "type": "array",
                         "items": {
@@ -19560,6 +20292,10 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    "group_by_property": {
+                        "type": "string",
+                        "description": "GroupByProperty is the property name in event.properties to group by before aggregating.\nWhen set, aggregation is applied per unique value of this property within each bucket,\nthen the per-group results are summed to produce the bucket total."
                     },
                     "multiplier": {
                         "type": "string"
@@ -19774,118 +20510,103 @@
                 "type": "object",
                 "properties": {
                     "amount": {
-                        "type": "string",
-                        "description": "amount is the monetary amount for this line item"
+                        "type": "number"
                     },
                     "commitment_info": {
                         "$ref": "#/components/schemas/types.CommitmentInfo"
                     },
                     "created_at": {
-                        "type": "string",
-                        "description": "created_at is the timestamp when this line item was created"
+                        "type": "string"
                     },
                     "created_by": {
-                        "type": "string",
-                        "description": "created_by is the identifier of the user who created this line item"
+                        "type": "string"
                     },
                     "currency": {
-                        "type": "string",
-                        "description": "currency is the three-letter ISO currency code for this line item"
+                        "type": "string"
                     },
                     "customer_id": {
-                        "type": "string",
-                        "description": "customer_id is the unique identifier of the customer associated with this line item"
+                        "type": "string"
                     },
                     "display_name": {
-                        "type": "string",
-                        "description": "display_name is the optional human-readable name for this line item"
+                        "type": "string"
                     },
                     "entity_id": {
-                        "type": "string",
-                        "description": "entity_id is the optional unique identifier of the entity associated with this line item"
+                        "type": "string"
                     },
                     "entity_type": {
-                        "type": "string",
-                        "description": "entity_type is the optional type of the entity associated with this line item"
+                        "type": "string"
+                    },
+                    "environment_id": {
+                        "type": "string"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "id is the unique identifier for this line item"
+                        "type": "string"
                     },
                     "invoice_id": {
-                        "type": "string",
-                        "description": "invoice_id is the unique identifier of the invoice this line item belongs to"
+                        "type": "string"
+                    },
+                    "invoice_level_discount": {
+                        "type": "number",
+                        "description": "invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice."
+                    },
+                    "line_item_discount": {
+                        "type": "number",
+                        "description": "line_item_discount is the discount amount in invoice currency applied directly to this line item."
                     },
                     "metadata": {
                         "$ref": "#/components/schemas/types.Metadata"
                     },
                     "meter_display_name": {
-                        "type": "string",
-                        "description": "meter_display_name is the optional human-readable name of the meter"
+                        "type": "string"
                     },
                     "meter_id": {
-                        "type": "string",
-                        "description": "meter_id is the optional unique identifier of the meter used for usage tracking"
+                        "type": "string"
                     },
                     "period_end": {
-                        "type": "string",
-                        "description": "period_end is the optional end date of the period this line item covers"
+                        "type": "string"
                     },
                     "period_start": {
-                        "type": "string",
-                        "description": "period_start is the optional start date of the period this line item covers"
+                        "type": "string"
                     },
                     "plan_display_name": {
-                        "type": "string",
-                        "description": "plan_display_name is the optional human-readable name of the plan"
+                        "type": "string"
                     },
-                    "plan_id": {
-                        "type": "string",
-                        "description": "plan_id is the optional unique identifier of the plan associated with this line item"
+                    "prepaid_credits_applied": {
+                        "type": "number",
+                        "description": "prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application."
                     },
                     "price_id": {
-                        "type": "string",
-                        "description": "price_id is the optional unique identifier of the price associated with this line item"
+                        "type": "string"
                     },
                     "price_type": {
-                        "type": "string",
-                        "description": "price_type indicates the type of pricing (fixed, usage, tiered, etc.)"
+                        "type": "string"
                     },
                     "price_unit": {
-                        "type": "string",
-                        "description": "price_unit is the optional 3-digit ISO code of the price unit associated with this line item"
+                        "type": "string"
                     },
                     "price_unit_amount": {
-                        "type": "string",
-                        "description": "price_unit_amount is the optional amount converted to the price unit currency"
+                        "type": "number"
                     },
                     "price_unit_id": {
-                        "type": "string",
-                        "description": "price_unit_id is the optional unique identifier of the price unit associated with this line item"
+                        "type": "string"
                     },
                     "quantity": {
-                        "type": "string",
-                        "description": "quantity is the quantity of units for this line item"
+                        "type": "number"
                     },
                     "status": {
-                        "type": "string",
-                        "description": "status represents the current status of this line item"
+                        "$ref": "#/components/schemas/types.Status"
                     },
                     "subscription_id": {
-                        "type": "string",
-                        "description": "subscription_id is the optional unique identifier of the subscription associated with this line item"
+                        "type": "string"
                     },
                     "tenant_id": {
-                        "type": "string",
-                        "description": "tenant_id is the unique identifier of the tenant this line item belongs to"
+                        "type": "string"
                     },
                     "updated_at": {
-                        "type": "string",
-                        "description": "updated_at is the timestamp when this line item was last updated"
+                        "type": "string"
                     },
                     "updated_by": {
-                        "type": "string",
-                        "description": "updated_by is the identifier of the user who last updated this line item"
+                        "type": "string"
                     },
                     "usage_analytics": {
                         "type": "array",
@@ -19938,67 +20659,73 @@
             "dto.InvoiceResponse": {
                 "type": "object",
                 "properties": {
+                    "adjustment_amount": {
+                        "type": "number",
+                        "description": "adjustment_amount is the total sum of credit notes of type \"adjustment\".\nThese are non-cash reductions applied to the invoice (e.g. goodwill credit, billing correction)."
+                    },
                     "amount_due": {
-                        "type": "string",
+                        "type": "number",
                         "description": "amount_due is the total amount that needs to be paid for this invoice"
                     },
                     "amount_paid": {
-                        "type": "string",
-                        "description": "amount_paid is the amount that has been paid towards this invoice"
+                        "type": "number",
+                        "description": "amount_paid is the amount that has already been paid towards this invoice"
                     },
                     "amount_remaining": {
-                        "type": "string",
-                        "description": "amount_remaining is the amount still outstanding on this invoice"
+                        "type": "number",
+                        "description": "amount_remaining is the outstanding amount still owed on this invoice (calculated as amount_due minus amount_paid)"
                     },
                     "billing_period": {
                         "type": "string",
-                        "description": "billing_period is the period this invoice covers (e.g., \"monthly\", \"yearly\")"
+                        "description": "billing_period describes the billing period this invoice covers (e.g., \"January 2024\", \"Q1 2024\")"
                     },
                     "billing_reason": {
                         "type": "string",
-                        "description": "billing_reason indicates why this invoice was created (subscription_cycle, manual, etc.)"
+                        "description": "billing_reason indicates why this invoice was generated (e.g., \"subscription_billing\", \"manual_charge\")"
                     },
                     "billing_sequence": {
                         "type": "integer",
-                        "description": "billing_sequence is the optional sequence number for billing cycles"
+                        "description": "billing_sequence is the sequential number indicating the billing cycle for subscription invoices"
                     },
                     "coupon_applications": {
                         "type": "array",
-                        "description": "coupon_applications contains the coupon applications associated with this invoice",
+                        "description": "coupon_applications contains the coupon applications associated with this invoice (overrides embedded field)",
                         "items": {
                             "$ref": "#/components/schemas/dto.CouponApplicationResponse"
                         }
                     },
                     "created_at": {
-                        "type": "string",
-                        "description": "created_at is the timestamp when this invoice was created"
+                        "type": "string"
                     },
                     "created_by": {
-                        "type": "string",
-                        "description": "created_by is the identifier of the user who created this invoice"
+                        "type": "string"
                     },
                     "currency": {
                         "type": "string",
-                        "description": "currency is the three-letter ISO currency code (e.g., USD, EUR) for the invoice"
+                        "description": "currency is the three-letter ISO currency code (e.g., USD, EUR, GBP) that applies to all monetary amounts on this invoice"
                     },
                     "customer": {
                         "$ref": "#/components/schemas/dto.CustomerResponse"
                     },
                     "customer_id": {
                         "type": "string",
-                        "description": "customer_id is the unique identifier of the customer this invoice belongs to"
+                        "description": "customer_id is the ID of the customer who will receive this invoice"
                     },
                     "description": {
                         "type": "string",
-                        "description": "description is the optional text description of the invoice"
+                        "description": "description is an optional description or notes about this invoice"
                     },
                     "due_date": {
                         "type": "string",
-                        "description": "due_date is the date by which payment is expected"
+                        "description": "due_date is the date when payment for this invoice is due"
+                    },
+                    "environment_id": {
+                        "type": "string",
+                        "description": "environment_id is the ID of the environment this invoice belongs to (for multi-environment setups)"
                     },
                     "finalized_at": {
                         "type": "string",
-                        "description": "finalized_at is the timestamp when this invoice was finalized"
+                        "description": "finalized_at is the timestamp when this invoice was finalized and made ready for payment"
                     },
                     "id": {
                         "type": "string",
@@ -20006,15 +20733,15 @@
                     },
                     "idempotency_key": {
                         "type": "string",
-                        "description": "idempotency_key is the optional key used to prevent duplicate invoice creation"
+                        "description": "idempotency_key is a unique key used to prevent duplicate invoice creation when retrying API calls"
                     },
                     "invoice_number": {
                         "type": "string",
-                        "description": "invoice_number is the optional human-readable identifier for the invoice"
+                        "description": "invoice_number is the human-readable invoice number displayed to customers (e.g., INV-2024-001)"
                     },
                     "invoice_pdf_url": {
                         "type": "string",
-                        "description": "invoice_pdf_url is the optional URL to the PDF version of this invoice"
+                        "description": "invoice_pdf_url is the URL where customers can download the PDF version of this invoice"
                     },
                     "invoice_status": {
                         "$ref": "#/components/schemas/types.InvoiceStatus"
@@ -20024,7 +20751,7 @@
                     },
                     "line_items": {
                         "type": "array",
-                        "description": "line_items contains the individual items that make up this invoice",
+                        "description": "line_items contains the individual items that make up this invoice (overrides embedded field)",
                         "items": {
                             "$ref": "#/components/schemas/dto.InvoiceLineItemResponse"
                         }
@@ -20038,33 +20765,36 @@
                     },
                     "paid_at": {
                         "type": "string",
-                        "description": "paid_at is the timestamp when this invoice was paid"
+                        "description": "paid_at is the timestamp when this invoice was fully paid"
                     },
                     "payment_status": {
                         "$ref": "#/components/schemas/types.PaymentStatus"
                     },
                     "period_end": {
                         "type": "string",
-                        "description": "period_end is the end date of the billing period"
+                        "description": "period_end is the end date of the billing period covered by this invoice"
                     },
                     "period_start": {
                         "type": "string",
-                        "description": "period_start is the start date of the billing period"
+                        "description": "period_start is the start date of the billing period covered by this invoice"
+                    },
+                    "refunded_amount": {
+                        "type": "number",
+                        "description": "refunded_amount is the total sum of credit notes of type \"refund\".\nThese are actual refunds issued to the customer."
                     },
                     "status": {
-                        "type": "string",
-                        "description": "status represents the current status of this invoice"
+                        "$ref": "#/components/schemas/types.Status"
                     },
                     "subscription": {
                         "$ref": "#/components/schemas/dto.SubscriptionResponse"
                     },
                     "subscription_id": {
                         "type": "string",
-                        "description": "subscription_id is the optional unique identifier of the subscription associated with this invoice"
+                        "description": "subscription_id is the ID of the subscription this invoice is associated with (only present for subscription-based invoices)"
                     },
                     "subtotal": {
-                        "type": "string",
-                        "description": "subtotal is the amount before taxes and discounts are applied"
+                        "type": "number",
+                        "description": "subtotal is the sum of all line items before any taxes, discounts, or additional fees"
                     },
                     "taxes": {
                         "type": "array",
@@ -20074,36 +20804,37 @@
                         }
                     },
                     "tenant_id": {
-                        "type": "string",
-                        "description": "tenant_id is the unique identifier of the tenant this invoice belongs to"
+                        "type": "string"
                     },
                     "total": {
-                        "type": "string",
-                        "description": "total is the total amount of the invoice including taxes and discounts"
+                        "type": "number",
+                        "description": "total is the final amount including taxes, fees, and discounts"
                     },
                     "total_discount": {
-                        "type": "string",
-                        "description": "total_discount is the total discount amount from coupon applications"
+                        "type": "number",
+                        "description": "total_discount is the sum of all coupon discounts applied to the invoice"
+                    },
+                    "total_prepaid_credits_applied": {
+                        "type": "number",
+                        "description": "total_prepaid_credits_applied is the total amount of prepaid credits applied to this invoice."
                     },
                     "total_tax": {
-                        "type": "string",
-                        "description": "total_tax is the total tax amount for this invoice"
+                        "type": "number",
+                        "description": "total_tax is the sum of all taxes combined at the invoice level."
                     },
                     "updated_at": {
-                        "type": "string",
-                        "description": "updated_at is the timestamp when this invoice was last updated"
+                        "type": "string"
                     },
                     "updated_by": {
-                        "type": "string",
-                        "description": "updated_by is the identifier of the user who last updated this invoice"
+                        "type": "string"
                     },
                     "version": {
                         "type": "integer",
-                        "description": "version is the version number of this invoice"
+                        "description": "version is the version number for tracking changes to this invoice"
                     },
                     "voided_at": {
                         "type": "string",
-                        "description": "voided_at is the timestamp when this invoice was voided"
+                        "description": "voided_at is the timestamp when this invoice was voided or cancelled"
                     }
                 }
             },
@@ -20113,6 +20844,9 @@
                     "commitment_amount": {
                         "type": "number",
                         "description": "CommitmentAmount is the minimum amount committed for this line item"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "commitment_quantity": {
                         "type": "number",
@@ -21695,9 +22429,16 @@
                     "billing_period": {
                         "$ref": "#/components/schemas/types.BillingPeriod"
                     },
+                    "billing_period_count": {
+                        "type": "integer",
+                        "description": "from price at create; default 1"
+                    },
                     "commitment_amount": {
                         "type": "number",
                         "description": "Commitment fields"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "commitment_overage_factor": {
                         "type": "number"
@@ -21968,6 +22709,97 @@
                     }
                 }
             },
+            "dto.SubscriptionPriceCreateRequest": {
+                "required": [
+                    "billing_cadence",
+                    "billing_model",
+                    "billing_period",
+                    "invoice_cadence",
+                    "price_unit_type",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "string"
+                    },
+                    "billing_cadence": {
+                        "$ref": "#/components/schemas/types.BillingCadence"
+                    },
+                    "billing_model": {
+                        "$ref": "#/components/schemas/types.BillingModel"
+                    },
+                    "billing_period": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
+                    },
+                    "billing_period_count": {
+                        "type": "integer"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "display_name": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "filter_values": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "invoice_cadence": {
+                        "$ref": "#/components/schemas/types.InvoiceCadence"
+                    },
+                    "lookup_key": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "meter_id": {
+                        "type": "string"
+                    },
+                    "min_quantity": {
+                        "type": "integer"
+                    },
+                    "price_unit_config": {
+                        "$ref": "#/components/schemas/dto.PriceUnitConfig"
+                    },
+                    "price_unit_type": {
+                        "$ref": "#/components/schemas/types.PriceUnitType"
+                    },
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "tier_mode": {
+                        "$ref": "#/components/schemas/types.BillingTier"
+                    },
+                    "tiers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/dto.CreatePriceTier"
+                        }
+                    },
+                    "transform_quantity": {
+                        "$ref": "#/components/schemas/price.TransformQuantity"
+                    },
+                    "trial_period": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/types.PriceType"
+                    }
+                }
+            },
             "dto.SubscriptionResponse": {
                 "type": "object",
                 "properties": {
@@ -22011,6 +22843,9 @@
                     "commitment_amount": {
                         "type": "string",
                         "description": "CommitmentAmount is the minimum amount a customer commits to paying for a billing period"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "coupon_associations": {
                         "type": "array",
@@ -22097,6 +22932,10 @@
                         "type": "string",
                         "description": "OverageFactor is a multiplier applied to usage beyond the commitment amount"
                     },
+                    "parent_subscription_id": {
+                        "type": "string",
+                        "description": "ParentSubscriptionID is the parent subscription ID for hierarchy (e.g. child subscription under a parent)"
+                    },
                     "pause_status": {
                         "$ref": "#/components/schemas/types.PauseStatus"
                     },
@@ -22109,6 +22948,9 @@
                     "payment_behavior": {
                         "type": "string",
                         "description": "PaymentBehavior determines how subscription payments are handled"
+                    },
+                    "payment_terms": {
+                        "$ref": "#/components/schemas/types.PaymentTerms"
                     },
                     "phases": {
                         "type": "array",
@@ -22204,6 +23046,9 @@
                         "type": "string",
                         "description": "CommitmentAmount is the minimum amount a customer commits to paying for a billing period"
                     },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
+                    },
                     "coupon_associations": {
                         "type": "array",
                         "description": "CouponAssociations are included when \"coupon_associations\" is in expand parameter",
@@ -22287,6 +23132,10 @@
                         "type": "string",
                         "description": "OverageFactor is a multiplier applied to usage beyond the commitment amount"
                     },
+                    "parent_subscription_id": {
+                        "type": "string",
+                        "description": "ParentSubscriptionID is the parent subscription ID for hierarchy (e.g. child subscription under a parent)"
+                    },
                     "pause_status": {
                         "$ref": "#/components/schemas/types.PauseStatus"
                     },
@@ -22300,6 +23149,9 @@
                     "payment_behavior": {
                         "type": "string",
                         "description": "PaymentBehavior determines how subscription payments are handled"
+                    },
+                    "payment_terms": {
+                        "$ref": "#/components/schemas/types.PaymentTerms"
                     },
                     "phases": {
                         "type": "array",
@@ -22649,7 +23501,8 @@
                 "type": "object",
                 "properties": {
                     "auto_apply": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Whether this tax should be automatically applied"
                     },
                     "created_at": {
                         "type": "string"
@@ -22658,37 +23511,44 @@
                         "type": "string"
                     },
                     "currency": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Currency"
                     },
                     "entity_id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID of the entity this tax rate applies to"
                     },
                     "entity_type": {
                         "$ref": "#/components/schemas/types.TaxRateEntityType"
                     },
                     "environment_id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "EnvironmentID is the ID of the environment this tax rate config belongs to"
                     },
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID of the ent."
                     },
                     "metadata": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Metadata holds the value of the \"metadata\" field."
                     },
                     "priority": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Priority for tax resolution (lower number = higher priority)"
                     },
                     "status": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/types.Status"
                     },
                     "tax_rate": {
                         "$ref": "#/components/schemas/dto.TaxRateResponse"
                     },
                     "tax_rate_id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Reference to the TaxRate entity"
                     },
                     "tenant_id": {
                         "type": "string"
@@ -22697,12 +23557,6 @@
                         "type": "string"
                     },
                     "updated_by": {
-                        "type": "string"
-                    },
-                    "valid_from": {
-                        "type": "string"
-                    },
-                    "valid_to": {
                         "type": "string"
                     }
                 }
@@ -22864,18 +23718,6 @@
                         "type": "string"
                     },
                     "updated_at": {
-                        "type": "string"
-                    }
-                }
-            },
-            "dto.Threshold": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "description": "amount"
-                    },
-                    "value": {
                         "type": "string"
                     }
                 }
@@ -23359,6 +24201,9 @@
                         "type": "number",
                         "description": "Commitment fields"
                     },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
+                    },
                     "commitment_overage_factor": {
                         "type": "number"
                     },
@@ -23397,6 +24242,24 @@
                     },
                     "transform_quantity": {
                         "$ref": "#/components/schemas/price.TransformQuantity"
+                    }
+                }
+            },
+            "dto.UpdateSubscriptionRequest": {
+                "type": "object",
+                "properties": {
+                    "cancel_at": {
+                        "type": "string"
+                    },
+                    "cancel_at_period_end": {
+                        "type": "boolean"
+                    },
+                    "parent_subscription_id": {
+                        "type": "string",
+                        "description": "ParentSubscriptionID sets or clears the parent subscription. Omit to leave unchanged; send \"\" to clear."
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/types.SubscriptionStatus"
                     }
                 }
             },
@@ -23455,11 +24318,8 @@
             "dto.UpdateWalletRequest": {
                 "type": "object",
                 "properties": {
-                    "alert_config": {
-                        "$ref": "#/components/schemas/dto.AlertConfig"
-                    },
-                    "alert_enabled": {
-                        "type": "boolean"
+                    "alert_settings": {
+                        "$ref": "#/components/schemas/types.AlertSettings"
                     },
                     "auto_topup": {
                         "$ref": "#/components/schemas/types.AutoTopup"
@@ -23677,14 +24537,11 @@
             "dto.WalletBalanceResponse": {
                 "type": "object",
                 "properties": {
-                    "alert_config": {
-                        "$ref": "#/components/schemas/types.AlertConfig"
-                    },
-                    "alert_enabled": {
-                        "type": "boolean"
+                    "alert_settings": {
+                        "$ref": "#/components/schemas/types.AlertSettings"
                     },
                     "alert_state": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/types.AlertState"
                     },
                     "auto_topup": {
                         "$ref": "#/components/schemas/types.AutoTopup"
@@ -23774,14 +24631,11 @@
             "dto.WalletResponse": {
                 "type": "object",
                 "properties": {
-                    "alert_config": {
-                        "$ref": "#/components/schemas/types.AlertConfig"
-                    },
-                    "alert_enabled": {
-                        "type": "boolean"
+                    "alert_settings": {
+                        "$ref": "#/components/schemas/types.AlertSettings"
                     },
                     "alert_state": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/types.AlertState"
                     },
                     "auto_topup": {
                         "$ref": "#/components/schemas/types.AutoTopup"
@@ -24293,6 +25147,110 @@
                     }
                 }
             },
+            "invoice.InvoiceLineItem": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number"
+                    },
+                    "commitment_info": {
+                        "$ref": "#/components/schemas/types.CommitmentInfo"
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "type": "string"
+                    },
+                    "display_name": {
+                        "type": "string"
+                    },
+                    "entity_id": {
+                        "type": "string"
+                    },
+                    "entity_type": {
+                        "type": "string"
+                    },
+                    "environment_id": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "invoice_id": {
+                        "type": "string"
+                    },
+                    "invoice_level_discount": {
+                        "type": "number",
+                        "description": "invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice."
+                    },
+                    "line_item_discount": {
+                        "type": "number",
+                        "description": "line_item_discount is the discount amount in invoice currency applied directly to this line item."
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/types.Metadata"
+                    },
+                    "meter_display_name": {
+                        "type": "string"
+                    },
+                    "meter_id": {
+                        "type": "string"
+                    },
+                    "period_end": {
+                        "type": "string"
+                    },
+                    "period_start": {
+                        "type": "string"
+                    },
+                    "plan_display_name": {
+                        "type": "string"
+                    },
+                    "prepaid_credits_applied": {
+                        "type": "number",
+                        "description": "prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application."
+                    },
+                    "price_id": {
+                        "type": "string"
+                    },
+                    "price_type": {
+                        "type": "string"
+                    },
+                    "price_unit": {
+                        "type": "string"
+                    },
+                    "price_unit_amount": {
+                        "type": "number"
+                    },
+                    "price_unit_id": {
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/types.Status"
+                    },
+                    "subscription_id": {
+                        "type": "string"
+                    },
+                    "tenant_id": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    },
+                    "updated_by": {
+                        "type": "string"
+                    }
+                }
+            },
             "meter.Aggregation": {
                 "type": "object",
                 "properties": {
@@ -24302,6 +25260,10 @@
                     "field": {
                         "type": "string",
                         "description": "Field is the key in $event.properties on which the aggregation is to be applied\nFor ex if the aggregation type is sum for API usage, the field could be \"duration_ms\""
+                    },
+                    "group_by": {
+                        "type": "string",
+                        "description": "GroupBy is the property name in event.properties to group by before aggregating.\nCurrently only supported for MAX aggregation with bucket_size.\nWhen set, aggregation is applied per unique value of this property within each bucket,\nthen the per-group results are summed to produce the bucket total."
                     },
                     "multiplier": {
                         "type": "string",
@@ -24611,9 +25573,16 @@
                     "billing_period": {
                         "$ref": "#/components/schemas/types.BillingPeriod"
                     },
+                    "billing_period_count": {
+                        "type": "integer",
+                        "description": "from price at create; default 1"
+                    },
                     "commitment_amount": {
                         "type": "number",
                         "description": "Commitment fields"
+                    },
+                    "commitment_duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "commitment_overage_factor": {
                         "type": "number"
@@ -24929,10 +25898,12 @@
             "types.AddonType": {
                 "type": "string",
                 "enum": [
-                    "onetime"
+                    "onetime",
+                    "multiple_instance"
                 ],
                 "x-enum-varnames": [
-                    "AddonTypeOnetime"
+                    "AddonTypeOnetime",
+                    "AddonTypeMultipleInstance"
                 ]
             },
             "types.AggregationType": {
@@ -24981,14 +25952,6 @@
                     "AlertConditionAbove",
                     "AlertConditionBelow"
                 ]
-            },
-            "types.AlertConfig": {
-                "type": "object",
-                "properties": {
-                    "threshold": {
-                        "$ref": "#/components/schemas/types.WalletAlertThreshold"
-                    }
-                }
             },
             "types.AlertEntityType": {
                 "type": "string",
@@ -25119,15 +26082,6 @@
                     }
                 }
             },
-            "types.AlertThresholdType": {
-                "type": "string",
-                "enum": [
-                    "amount"
-                ],
-                "x-enum-varnames": [
-                    "AlertThresholdTypeAmount"
-                ]
-            },
             "types.AlertType": {
                 "type": "string",
                 "enum": [
@@ -25240,6 +26194,17 @@
                     "BILLING_TIER_SLAB"
                 ]
             },
+            "types.CancelImmediatelyInvoicePolicy": {
+                "type": "string",
+                "enum": [
+                    "generate_invoice",
+                    "skip"
+                ],
+                "x-enum-varnames": [
+                    "CancelImmediatelyInvoicePolicyGenerateInvoice",
+                    "CancelImmediatelyInvoicePolicySkip"
+                ]
+            },
             "types.CancellationType": {
                 "type": "string",
                 "enum": [
@@ -25302,6 +26267,9 @@
                     "computed_true_up_amount": {
                         "type": "string",
                         "description": "total_cost = computed_commitment_utilized_amount + computed_overage_amount + computed_true_up_amount"
+                    },
+                    "duration": {
+                        "$ref": "#/components/schemas/types.BillingPeriod"
                     },
                     "is_windowed": {
                         "type": "boolean"
@@ -25397,6 +26365,9 @@
                     },
                     "hubspot": {
                         "$ref": "#/components/schemas/types.HubSpotConnectionMetadata"
+                    },
+                    "moyasar": {
+                        "$ref": "#/components/schemas/types.MoyasarConnectionMetadata"
                     },
                     "nomod": {
                         "$ref": "#/components/schemas/types.NomodConnectionMetadata"
@@ -26184,6 +27155,22 @@
                             "$ref": "#/components/schemas/types.PaymentStatus"
                         }
                     },
+                    "period_end_gte": {
+                        "type": "string",
+                        "description": "period_end_gte filters invoices with period_end >= value"
+                    },
+                    "period_end_lte": {
+                        "type": "string",
+                        "description": "period_end_lte filters invoices with period_end <= value"
+                    },
+                    "period_start_gte": {
+                        "type": "string",
+                        "description": "period_start_gte filters invoices with period_start >= value"
+                    },
+                    "period_start_lte": {
+                        "type": "string",
+                        "description": "period_start_lte filters invoices with period_start <= value"
+                    },
                     "skip_line_items": {
                         "type": "boolean",
                         "description": "SkipLineItems if true, will not include line items in the response"
@@ -26250,6 +27237,23 @@
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
+                }
+            },
+            "types.MoyasarConnectionMetadata": {
+                "type": "object",
+                "properties": {
+                    "publishable_key": {
+                        "type": "string",
+                        "description": "Moyasar Publishable Key (encrypted, for frontend use)"
+                    },
+                    "secret_key": {
+                        "type": "string",
+                        "description": "Moyasar Secret Key (encrypted)"
+                    },
+                    "webhook_secret": {
+                        "type": "string",
+                        "description": "Moyasar Webhook Secret (encrypted, optional)"
+                    }
                 }
             },
             "types.NomodConnectionMetadata": {
@@ -26338,12 +27342,14 @@
                 "enum": [
                     "stripe",
                     "razorpay",
-                    "nomod"
+                    "nomod",
+                    "moyasar"
                 ],
                 "x-enum-varnames": [
                     "PaymentGatewayTypeStripe",
                     "PaymentGatewayTypeRazorpay",
-                    "PaymentGatewayTypeNomod"
+                    "PaymentGatewayTypeNomod",
+                    "PaymentGatewayTypeMoyasar"
                 ]
             },
             "types.PaymentMethodType": {
@@ -26384,6 +27390,25 @@
                     "PaymentStatusFailed",
                     "PaymentStatusRefunded",
                     "PaymentStatusPartiallyRefunded"
+                ]
+            },
+            "types.PaymentTerms": {
+                "type": "string",
+                "enum": [
+                    "15 NET",
+                    "30 NET",
+                    "45 NET",
+                    "60 NET",
+                    "75 NET",
+                    "90 NET"
+                ],
+                "x-enum-varnames": [
+                    "PaymentTerms15Net",
+                    "PaymentTerms30Net",
+                    "PaymentTerms45Net",
+                    "PaymentTerms60Net",
+                    "PaymentTerms75Net",
+                    "PaymentTerms90Net"
                 ]
             },
             "types.PlanFilter": {
@@ -26457,6 +27482,90 @@
                     "PRICE_ENTITY_TYPE_PRICE",
                     "PRICE_ENTITY_TYPE_COSTSHEET"
                 ]
+            },
+            "types.PriceFilter": {
+                "type": "object",
+                "properties": {
+                    "allow_expired_prices": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "end_time": {
+                        "type": "string"
+                    },
+                    "entity_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "entity_type": {
+                        "$ref": "#/components/schemas/types.PriceEntityType"
+                    },
+                    "expand": {
+                        "type": "string"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "description": "DSL filters",
+                        "items": {
+                            "$ref": "#/components/schemas/types.FilterCondition"
+                        }
+                    },
+                    "limit": {
+                        "maximum": 1000,
+                        "minimum": 1,
+                        "type": "integer"
+                    },
+                    "meter_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "offset": {
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "order": {
+                        "type": "string",
+                        "enum": [
+                            "asc",
+                            "desc"
+                        ]
+                    },
+                    "parent_price_id": {
+                        "type": "string"
+                    },
+                    "plan_ids": {
+                        "type": "array",
+                        "description": "Price override filtering fields",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "price_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "sort": {
+                        "type": "string"
+                    },
+                    "start_date_lt": {
+                        "type": "string"
+                    },
+                    "start_time": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/types.Status"
+                    },
+                    "subscription_id": {
+                        "type": "string"
+                    }
+                }
             },
             "types.PriceType": {
                 "type": "string",
@@ -26806,7 +27915,8 @@
                     "razorpay",
                     "chargebee",
                     "quickbooks",
-                    "nomod"
+                    "nomod",
+                    "moyasar"
                 ],
                 "x-enum-varnames": [
                     "SecretProviderFlexPrice",
@@ -26816,7 +27926,8 @@
                     "SecretProviderRazorpay",
                     "SecretProviderChargebee",
                     "SecretProviderQuickBooks",
-                    "SecretProviderNomod"
+                    "SecretProviderNomod",
+                    "SecretProviderMoyasar"
                 ]
             },
             "types.SecretType": {
@@ -26961,6 +28072,13 @@
                             "desc"
                         ]
                     },
+                    "parent_subscription_ids": {
+                        "type": "array",
+                        "description": "ParentSubscriptionIDs filters by parent subscription IDs",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "plan_id": {
                         "type": "string",
                         "description": "PlanID filters by plan ID"
@@ -27000,11 +28118,13 @@
                 "type": "string",
                 "enum": [
                     "plan",
-                    "addon"
+                    "addon",
+                    "subscription"
                 ],
                 "x-enum-varnames": [
                     "SubscriptionLineItemEntityTypePlan",
-                    "SubscriptionLineItemEntityTypeAddon"
+                    "SubscriptionLineItemEntityTypeAddon",
+                    "SubscriptionLineItemEntityTypeSubscription"
                 ]
             },
             "types.SubscriptionScheduleChangeType": {
@@ -27161,7 +28281,8 @@
                     "CREDIT_NOTE",
                     "CREDIT_EXPIRED",
                     "WALLET_TERMINATION",
-                    "MANUAL_BALANCE_DEBIT"
+                    "MANUAL_BALANCE_DEBIT",
+                    "CREDIT_ADJUSTMENT"
                 ],
                 "x-enum-varnames": [
                     "TransactionReasonInvoicePayment",
@@ -27172,7 +28293,8 @@
                     "TransactionReasonCreditNote",
                     "TransactionReasonCreditExpired",
                     "TransactionReasonWalletTermination",
-                    "TransactionReasonManualBalanceDebit"
+                    "TransactionReasonManualBalanceDebit",
+                    "TransactionReasonCreditAdjustment"
                 ]
             },
             "types.TransactionStatus": {
@@ -27271,17 +28393,6 @@
                     "UserTypeUser",
                     "UserTypeServiceAccount"
                 ]
-            },
-            "types.WalletAlertThreshold": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "$ref": "#/components/schemas/types.AlertThresholdType"
-                    },
-                    "value": {
-                        "type": "number"
-                    }
-                }
             },
             "types.WalletConfig": {
                 "type": "object",
@@ -27444,28 +28555,31 @@
                 "enum": [
                     "PAYMENT",
                     "EXTERNAL",
-                    "REQUEST"
+                    "REQUEST",
+                    "INVOICE"
                 ],
                 "x-enum-varnames": [
                     "WalletTxReferenceTypePayment",
                     "WalletTxReferenceTypeExternal",
-                    "WalletTxReferenceTypeRequest"
+                    "WalletTxReferenceTypeRequest",
+                    "WalletTxReferenceTypeInvoice"
                 ]
             },
             "types.WalletType": {
                 "type": "string",
                 "enum": [
-                    "PROMOTIONAL",
-                    "PRE_PAID"
+                    "PRE_PAID",
+                    "POST_PAID"
                 ],
                 "x-enum-varnames": [
-                    "WalletTypePromotional",
-                    "WalletTypePrePaid"
+                    "WalletTypePrePaid",
+                    "WalletTypePostPaid"
                 ]
             },
             "types.WindowSize": {
                 "type": "string",
                 "enum": [
+                    "MONTH",
                     "MINUTE",
                     "15MIN",
                     "30MIN",
@@ -27475,10 +28589,10 @@
                     "12HOUR",
                     "DAY",
                     "WEEK",
-                    "MONTH",
                     "MONTH"
                 ],
                 "x-enum-varnames": [
+                    "DefaultWindowSize",
                     "WindowSizeMinute",
                     "WindowSize15Min",
                     "WindowSize30Min",
@@ -27488,8 +28602,7 @@
                     "WindowSize12Hour",
                     "WindowSizeDay",
                     "WindowSizeWeek",
-                    "WindowSizeMonth",
-                    "DefaultWindowSize"
+                    "WindowSizeMonth"
                 ]
             }
         },
